@@ -154,6 +154,22 @@ extension UIViewController {
         
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    /// Initialises Any type of UIViewController
+    ///
+    /// - Parameters:
+    ///   - type: A generic instance of type UIViewController
+    ///   - storyboardName: A String value which defines the storyboard name from which the UIViewController should be initialised
+    ///   - storyboardId: A String value which defines an unique identifier for each UIViewController instance
+    ///   - bundle: A Bundle instance
+    /// - Returns: Type of UIViewController
+    class func getViewController<T>(ofType type: T.Type,
+                                    fromStoryboardName storyboardName: String,
+                                    storyboardId: String,
+                                    bundle: Bundle) -> T? where T: UIViewController {
+        let designatedViewController = UIStoryboard(name: storyboardName, bundle: bundle).instantiateViewController(withIdentifier: storyboardId)
+        return designatedViewController as? T
+    }
 }
 
 extension UIView {

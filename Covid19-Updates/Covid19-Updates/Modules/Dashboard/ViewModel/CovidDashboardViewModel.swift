@@ -149,6 +149,24 @@ final class CovidDashboardViewModel: NSObject {
         return nil
     }
     
+    func countryCellViewModel(at indexPath: IndexPath) -> CovidDashboardCollectionHolderCellViewModel? {
+        if sections.count > indexPath.section {
+            let section = sections[indexPath.section]
+            switch section {
+            case .all: return nil
+            case .country:
+                if filteredCountryDataCellViewModels.count > indexPath.row {
+                    let vm = filteredCountryDataCellViewModels[indexPath.row]
+                    if let data = coutntryWiseCases.filter({ $0.country == vm.title }).first {
+                        let countryDetailsVM = CovidDashboardCollectionHolderCellViewModel(with: data)
+                        return countryDetailsVM
+                    }
+                }
+            }
+        }
+        return nil
+    }
+    
     // MARK: - Filter
     func filterResult(by searchQuery: String) {
         let filtered = originalCountryDataCellViewModels.filter({ $0.title.lowercased().contains(searchQuery.lowercased()) })

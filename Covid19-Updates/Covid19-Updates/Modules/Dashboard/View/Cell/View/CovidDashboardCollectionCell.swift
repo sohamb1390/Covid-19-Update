@@ -13,6 +13,7 @@ class CovidDashboardCollectionCell: UICollectionViewCell {
     // MARK: IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var containerView: ShadowView!
 
     // MARK: - Lifecycle
     override func awakeFromNib() {
@@ -20,6 +21,7 @@ class CovidDashboardCollectionCell: UICollectionViewCell {
         // Initialization code
         updateFontStyle()
         updateTextColor()
+        setupUI()
     }
 
     private func updateFontStyle() {
@@ -28,8 +30,14 @@ class CovidDashboardCollectionCell: UICollectionViewCell {
     }
     
     private func updateTextColor() {
-        titleLabel.textColor = UIColor(appColor: .text)
+        titleLabel.textColor = UIColor(named: "Text") ?? UIColor(appColor: .text)
         subtitleLabel.textColor = UIColor(appColor: .red)
+    }
+    
+    private func setupUI() {
+        if traitCollection.userInterfaceStyle == .dark {
+            containerView.shadowColor = .clear
+        }
     }
 }
 

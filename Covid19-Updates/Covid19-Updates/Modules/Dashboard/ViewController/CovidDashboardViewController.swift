@@ -52,14 +52,14 @@ class CovidDashboardViewController: UIViewController {
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = viewModel?.searchbarPlaceholder
         search.searchBar.delegate = self
-        navigationItem.searchController = search
+        tabBarController?.navigationItem.searchController = search
     }
     
     private func setupNavigationItem() {
         let refreshNavigationItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(onTapRefresh(_:)))
         refreshNavigationItem.tintColor = UIColor(appColor: .base)
         refreshNavigationItem.style = .done
-        navigationItem.rightBarButtonItem = refreshNavigationItem
+        tabBarController?.navigationItem.rightBarButtonItem = refreshNavigationItem
     }
     
     private func setupTabBar() {
@@ -71,11 +71,11 @@ class CovidDashboardViewController: UIViewController {
     // MARK: - Actions
     @objc
     private func onTapRefresh(_ sender: Any) {
-        navigationItem.rightBarButtonItem = nil
+        tabBarController?.navigationItem.rightBarButtonItem = nil
         let loader = UIActivityIndicatorView(style: .medium)
         loader.tintColor = UIColor(appColor: .base)
         loader.startAnimating()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loader)
+        tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loader)
         fetch()
     }
     
@@ -149,6 +149,14 @@ extension CovidDashboardViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if let cellVM = viewModel?.countryCellViewModel(at: indexPath),
+            let navigationController = UIViewController.getViewController(ofType: UINavigationController.self, fromStoryboardName: "CovidDetails", storyboardId: "CovidDetailsNavigationController", bundle: .main),
+            let detailsViewController = navigationController.viewControllers.first as? CovidDetailsViewController {
+            detailsViewController.bind(to: cellVM)
+            
+            navigationController.modalPresentationStyle = .formSheet
+            tabBarController?.navigationController?.present(navigationController, animated: true, completion: nil)
+        }
     }
 }
 

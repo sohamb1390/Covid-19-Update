@@ -111,3 +111,9 @@ final class CovidDashboardCollectionHolderCellViewModel: DashboardCellCommonMode
         return nil
     }
 }
+
+extension CovidDashboardCollectionHolderCellViewModel {
+    var countryName: String? {
+        return self.covidData.country ?? NSLocalizedString("More Details", comment: "")
+    }
+}

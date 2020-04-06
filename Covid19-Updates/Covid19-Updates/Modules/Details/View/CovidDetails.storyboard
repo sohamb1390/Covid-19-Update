@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Kf-5u-s4o">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="B9Y-Ps-N5c">
+            <objects>
+                <navigationController storyboardIdentifier="CovidDetailsNavigationController" id="2Kf-5u-s4o" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cxz-7i-PbI">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NlM-tt-IEx" kind="relationship" relationship="rootViewController" id="nwv-aY-RRP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rvc-nd-dSO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-778" y="9"/>
+        </scene>
+        <!--Covid Details View Controller-->
+        <scene sceneID="9Gy-lp-lQq">
+            <objects>
+                <collectionViewController storyboardIdentifier="CovidDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NlM-tt-IEx" customClass="CovidDetailsViewController" customModule="Covid19_Updates" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="RMB-Ni-fox">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="20" id="P62-o0-xE2">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="NlM-tt-IEx" id="seU-Pm-J9B"/>
+                            <outlet property="delegate" destination="NlM-tt-IEx" id="amh-dd-5DL"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="yAF-rZ-cVU"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HnO-Hy-ha7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="30" y="10"/>
+        </scene>
+    </scenes>
+</document>
