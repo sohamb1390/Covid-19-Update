@@ -42,10 +42,8 @@ final class CovidDashboardViewModel: NSObject {
     }
     
     // MARK: - Fetch Data
-    func fetchData(_ isRefreshing: Bool) {
-        if !isRefreshing {
-            showLoader.value = true
-        }
+    func fetchData() {
+        showLoader.value = true
         originalCountryDataCellViewModels.removeAll()
         filteredCountryDataCellViewModels.removeAll()
         

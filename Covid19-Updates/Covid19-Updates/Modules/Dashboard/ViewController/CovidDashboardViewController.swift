@@ -15,7 +15,6 @@ class CovidDashboardViewController: UIViewController {
     
     // MARK: Properties
     private var viewModel: CovidDashboardViewModel?
-    private let refreshControl = UIRefreshControl()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -25,24 +24,23 @@ class CovidDashboardViewController: UIViewController {
         bind(to: CovidDashboardViewModel())
         setupTableView()
         setupSearchBar()
+        setupNavigationItem()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Fetch Data
-        viewModel?.fetchData(false)
+        viewModel?.fetchData()
     }
     
     // MARK: - Setup
     private func setupTableView() {
-        refreshControl.addTarget(self, action: #selector(fetch), for: .valueChanged)
         dashboardTableView.delegate = self
         dashboardTableView.dataSource = self
         dashboardTableView.estimatedRowHeight = 60.0
         dashboardTableView.tableFooterView = UIView()
         dashboardTableView.showsVerticalScrollIndicator = false
         dashboardTableView.showsVerticalScrollIndicator = false
-        dashboardTableView.addSubview(refreshControl)
         dashboardTableView.register(UINib(nibName: CovidDashboardCell.className, bundle: .main), forCellReuseIdentifier: CovidDashboardCell.className)
         dashboardTableView.register(UINib(nibName: CovidDashboardCollectionHolderCell.className, bundle: .main), forCellReuseIdentifier: CovidDashboardCollectionHolderCell.className)
     }
@@ -56,11 +54,28 @@ class CovidDashboardViewController: UIViewController {
         navigationItem.searchController = search
     }
     
-    // MARK: - Fetch
+    private func setupNavigationItem() {
+        let refreshNavigationItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(onTapRefresh(_:)))
+        refreshNavigationItem.tintColor = UIColor(appColor: .base)
+        refreshNavigationItem.style = .done
+        navigationItem.rightBarButtonItem = refreshNavigationItem
+    }
+    
+    // MARK: - Actions
     @objc
+    private func onTapRefresh(_ sender: Any) {
+        navigationItem.rightBarButtonItem = nil
+        let loader = UIActivityIndicatorView(style: .medium)
+        loader.tintColor = UIColor(appColor: .base)
+        loader.startAnimating()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loader)
+        fetch()
+    }
+    
+    // MARK: - Fetch
     private func fetch() {
         // Fetch Data
-        viewModel?.fetchData(true)
+        viewModel?.fetchData()
     }
 }
 // MARK: - Search Mechanism
@@ -141,7 +156,7 @@ extension CovidDashboardViewController: CovidBindable {
             DispatchQueue.main.async {
                 if let error = response.result {
                     let action = UIAlertAction(title: self?.viewModel?.retryTitle, style: .default) { (_) in
-                        self?.viewModel?.fetchData(false)
+                        self?.fetch()
                     }
                     self?.showAlert(with: self?.viewModel?.errorTitle, description: error.localizedDescription, type: .alert, actions: [action])
                 } else {
@@ -156,9 +171,7 @@ extension CovidDashboardViewController: CovidBindable {
                     self?.show()
                 } else {
                     self?.dismiss()
-                    if self?.refreshControl.isRefreshing == true {
-                        self?.refreshControl.endRefreshing()
-                    }
+                    self?.setupNavigationItem()
                 }
             }
         })
