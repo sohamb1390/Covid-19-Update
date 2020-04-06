@@ -41,6 +41,14 @@ final class CovidDashboardViewModel: NSObject {
         return NSLocalizedString("Try searching using city names", comment: "")
     }
     
+    var navigationTitle: String {
+        return NSLocalizedString("Covid-19", comment: "")
+    }
+    
+    var tabBarTitle: String {
+        return NSLocalizedString("Dashboard", comment: "")
+    }
+    
     // MARK: - Fetch Data
     func fetchData() {
         showLoader.value = true

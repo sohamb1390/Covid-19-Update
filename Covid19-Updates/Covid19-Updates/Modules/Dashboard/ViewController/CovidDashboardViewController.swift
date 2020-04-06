@@ -25,6 +25,7 @@ class CovidDashboardViewController: UIViewController {
         setupTableView()
         setupSearchBar()
         setupNavigationItem()
+        setupTabBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +60,12 @@ class CovidDashboardViewController: UIViewController {
         refreshNavigationItem.tintColor = UIColor(appColor: .base)
         refreshNavigationItem.style = .done
         navigationItem.rightBarButtonItem = refreshNavigationItem
+    }
+    
+    private func setupTabBar() {
+        tabBarItem.title = viewModel?.tabBarTitle
+        tabBarController?.tabBar.tintColor = UIColor(appColor: .base)
+        tabBarController?.navigationItem.title = viewModel?.navigationTitle
     }
     
     // MARK: - Actions

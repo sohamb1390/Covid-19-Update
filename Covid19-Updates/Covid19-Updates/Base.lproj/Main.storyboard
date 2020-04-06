@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,12 +21,12 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Mxg-8c-PfQ"/>
+                        <segue destination="Krh-YI-68k" kind="relationship" relationship="rootViewController" id="ebm-CY-7RA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HAN-GD-d0y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1123" y="102"/>
+            <point key="canvasLocation" x="-2919" y="883"/>
         </scene>
         <!--Covid-19-->
         <scene sceneID="tne-QT-ifu">
@@ -49,6 +50,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="list.dash" catalog="system" id="CXG-Q7-jEa">
+                        <color key="badgeColor" name="Base"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Covid-19" id="Ocy-hs-UOs"/>
                     <connections>
                         <outlet property="dashboardTableView" destination="LZx-me-VJh" id="6N0-vR-F1d"/>
@@ -56,7 +60,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-55.072463768115945" y="101.78571428571428"/>
+            <point key="canvasLocation" x="-983" y="902"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="hwF-49-6C4">
+            <objects>
+                <viewController id="YsE-lb-Wmw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FtY-p2-FCE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="KpL-G6-2zi"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="Fuv-K3-ONp">
+                        <color key="badgeColor" name="Base"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cue-7L-Shu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-984" y="1671"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="opi-hr-fTC">
+            <objects>
+                <tabBarController id="Krh-YI-68k" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fNh-FZ-vaN"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xeh-Nj-WZ3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="Base"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Ftg-nZ-buM"/>
+                        <segue destination="YsE-lb-Wmw" kind="relationship" relationship="viewControllers" id="Qld-Wx-weM"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r0Z-iz-jxb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2019" y="883"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="map" catalog="system" width="128" height="113"/>
+        <namedColor name="Base">
+            <color red="0.15294117647058825" green="0.71764705882352942" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
