@@ -30,6 +30,7 @@ class CovidDashboardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
         // Fetch Data
         viewModel?.fetchData()
     }
@@ -63,7 +64,13 @@ class CovidDashboardViewController: UIViewController {
     }
     
     private func setupTabBar() {
-        tabBarItem.title = viewModel?.tabBarTitle
+        for subViewController in tabBarController?.viewControllers ?? [] {
+            if subViewController.isKind(of: CovidDashboardViewController.self) {
+                subViewController.tabBarItem.title = viewModel?.dashboardTabBarTitle
+            } else if subViewController.isKind(of: CovidDashboardViewController.self) {
+                subViewController.tabBarItem.title = viewModel?.mapTabBarTitle
+            }
+        }
         tabBarController?.tabBar.tintColor = UIColor(appColor: .base)
         tabBarController?.navigationItem.title = viewModel?.navigationTitle
     }

@@ -45,8 +45,12 @@ final class CovidDashboardViewModel: NSObject {
         return NSLocalizedString("Covid-19", comment: "")
     }
     
-    var tabBarTitle: String {
+    var dashboardTabBarTitle: String {
         return NSLocalizedString("Dashboard", comment: "")
+    }
+    
+    var mapTabBarTitle: String {
+        return NSLocalizedString("Map", comment: "")
     }
     
     // MARK: - Fetch Data
@@ -74,6 +78,7 @@ final class CovidDashboardViewModel: NSObject {
             } else {
                 if let countryData = countryCases as? [Covid19Cases] {
                     self?.coutntryWiseCases = countryData.sorted(by: { ($0.cases ?? Int64(0)) > ($1.cases ?? Int64(0)) })
+                    CovidSharedData.shared.countryWiseCases = countryData
                     self?.setupCountryWiseCellViewModel()
                     return
                 }

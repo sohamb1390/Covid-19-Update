@@ -105,7 +105,7 @@ final class CovidDashboardCollectionHolderCellViewModel: DashboardCellCommonMode
                 if let value = covidData.affectedCountries {
                     return (title: row.localized(), value: "\(value)")
                 }
-                return (title: row.localized(), value: GeneralConstants.ReusableText.notAvailableString.localized())
+                return nil
             }
         }
         return nil

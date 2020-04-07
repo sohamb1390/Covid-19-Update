@@ -65,20 +65,34 @@
         <!--Map-->
         <scene sceneID="hwF-49-6C4">
             <objects>
-                <viewController id="YsE-lb-Wmw" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CovidMapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YsE-lb-Wmw" customClass="CovidMapViewController" customModule="Covid19_Updates" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FtY-p2-FCE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="igG-hp-u6v">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="igG-hp-u6v" firstAttribute="trailing" secondItem="KpL-G6-2zi" secondAttribute="trailing" id="BEf-nA-qzx"/>
+                            <constraint firstItem="igG-hp-u6v" firstAttribute="top" secondItem="FtY-p2-FCE" secondAttribute="top" id="Rpo-Ej-5Rk"/>
+                            <constraint firstItem="igG-hp-u6v" firstAttribute="leading" secondItem="KpL-G6-2zi" secondAttribute="leading" id="YuY-z0-9G5"/>
+                            <constraint firstItem="igG-hp-u6v" firstAttribute="bottom" secondItem="KpL-G6-2zi" secondAttribute="bottom" id="oRW-Fb-2vx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KpL-G6-2zi"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="Fuv-K3-ONp">
                         <color key="badgeColor" name="Base"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="mapView" destination="igG-hp-u6v" id="NRT-oU-5U7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cue-7L-Shu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-984" y="1671"/>
+            <point key="canvasLocation" x="-984.05797101449286" y="1670.7589285714284"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="opi-hr-fTC">
@@ -105,7 +119,7 @@
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="map" catalog="system" width="128" height="113"/>
         <namedColor name="Base">
-            <color red="0.15294117647058825" green="0.71764705882352942" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.15299999713897705" green="0.71799999475479126" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

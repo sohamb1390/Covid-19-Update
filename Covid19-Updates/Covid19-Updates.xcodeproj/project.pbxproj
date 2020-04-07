@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44081E0E243C34CF006E82F5 /* CovidMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44081E0D243C34CF006E82F5 /* CovidMapViewController.swift */; };
+		44081E14243C96DB006E82F5 /* CovidMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44081E13243C96DB006E82F5 /* CovidMapViewModel.swift */; };
+		44081E16243C97BB006E82F5 /* CovidAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44081E15243C97BB006E82F5 /* CovidAnnotationView.swift */; };
+		44081E19243C97DC006E82F5 /* CovidAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44081E18243C97DC006E82F5 /* CovidAnnotation.swift */; };
+		44081E1F243CA754006E82F5 /* CovidSharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44081E1E243CA754006E82F5 /* CovidSharedData.swift */; };
+		44081E21243CAA42006E82F5 /* CovidClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44081E20243CAA42006E82F5 /* CovidClusterAnnotationView.swift */; };
 		448B3BCA2439AD8700C8526F /* CovidAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448B3BC92439AD8700C8526F /* CovidAppDelegate.swift */; };
 		448B3BD12439AD8700C8526F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 448B3BCF2439AD8700C8526F /* Main.storyboard */; };
 		448B3BD32439AD8C00C8526F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 448B3BD22439AD8C00C8526F /* Assets.xcassets */; };
@@ -66,6 +72,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44081E0D243C34CF006E82F5 /* CovidMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidMapViewController.swift; sourceTree = "<group>"; };
+		44081E13243C96DB006E82F5 /* CovidMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidMapViewModel.swift; sourceTree = "<group>"; };
+		44081E15243C97BB006E82F5 /* CovidAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidAnnotationView.swift; sourceTree = "<group>"; };
+		44081E18243C97DC006E82F5 /* CovidAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidAnnotation.swift; sourceTree = "<group>"; };
+		44081E1E243CA754006E82F5 /* CovidSharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidSharedData.swift; sourceTree = "<group>"; };
+		44081E20243CAA42006E82F5 /* CovidClusterAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CovidClusterAnnotationView.swift; sourceTree = "<group>"; };
 		448B3BC62439AD8700C8526F /* Covid19-Updates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid19-Updates.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		448B3BC92439AD8700C8526F /* CovidAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidAppDelegate.swift; sourceTree = "<group>"; };
 		448B3BD02439AD8700C8526F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,6 +150,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44081E0B243C3481006E82F5 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				44081E17243C97D1006E82F5 /* Model */,
+				44081E12243C96AF006E82F5 /* ViewModel */,
+				44081E0F243C368B006E82F5 /* View */,
+				44081E0C243C3486006E82F5 /* ViewController */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		44081E0C243C3486006E82F5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				44081E0D243C34CF006E82F5 /* CovidMapViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		44081E0F243C368B006E82F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44081E20243CAA42006E82F5 /* CovidClusterAnnotationView.swift */,
+				44081E15243C97BB006E82F5 /* CovidAnnotationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44081E12243C96AF006E82F5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				44081E13243C96DB006E82F5 /* CovidMapViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		44081E17243C97D1006E82F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44081E18243C97DC006E82F5 /* CovidAnnotation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		448B3BBD2439AD8700C8526F = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +247,7 @@
 				448B3BEE2439B31900C8526F /* CovidAppConstants.swift */,
 				448B3BF02439B34400C8526F /* CovidAppExtension.swift */,
 				448B3C0F243A098400C8526F /* CovidCommonProtocol.swift */,
+				44081E1E243CA754006E82F5 /* CovidSharedData.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -198,6 +255,7 @@
 		448B3BF22439B67600C8526F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				44081E0B243C3481006E82F5 /* Map */,
 				44A76831243B656A007162F4 /* Details */,
 				448B3BF32439B68400C8526F /* Dashboard */,
 			);
@@ -517,20 +575,25 @@
 				448B3C0D2439BF9D00C8526F /* Observable.swift in Sources */,
 				448B3C17243A0AE200C8526F /* APIConstants.swift in Sources */,
 				448B3BF12439B34400C8526F /* CovidAppExtension.swift in Sources */,
+				44081E1F243CA754006E82F5 /* CovidSharedData.swift in Sources */,
 				448B3C0A2439BF9D00C8526F /* UIControls+Bindable.swift in Sources */,
 				448B3C10243A098400C8526F /* CovidCommonProtocol.swift in Sources */,
 				448B3C1D243A0E0400C8526F /* CovidDashboardViewController.swift in Sources */,
 				448B3C18243A0AE200C8526F /* NetworkAdapter.swift in Sources */,
 				448B3C29243A133C00C8526F /* CovidDashboardViewModel.swift in Sources */,
 				448B3C3D243ADF4F00C8526F /* RadialGradientLayer.swift in Sources */,
+				44081E19243C97DC006E82F5 /* CovidAnnotation.swift in Sources */,
 				44A7683B243B66CC007162F4 /* CovidDetailsViewController.swift in Sources */,
 				448B3C20243A0E4D00C8526F /* CovidDashboardFetcher.swift in Sources */,
 				448B3BCA2439AD8700C8526F /* CovidAppDelegate.swift in Sources */,
+				44081E16243C97BB006E82F5 /* CovidAnnotationView.swift in Sources */,
 				448B3C51243B151900C8526F /* CovidDashboardHeaderView.swift in Sources */,
 				448B3C072439BF9D00C8526F /* NSObject+Observable.swift in Sources */,
+				44081E0E243C34CF006E82F5 /* CovidMapViewController.swift in Sources */,
 				448B3BF72439B71500C8526F /* CovidDashboardCell.swift in Sources */,
 				448B3C3F243ADF4F00C8526F /* ProgressAnimatedView.swift in Sources */,
 				448B3C1A243A0AE200C8526F /* NetworkProtocol.swift in Sources */,
+				44081E21243CAA42006E82F5 /* CovidClusterAnnotationView.swift in Sources */,
 				448B3C092439BF9D00C8526F /* BlockBasedSelector.swift in Sources */,
 				448B3BEF2439B31900C8526F /* CovidAppConstants.swift in Sources */,
 				448B3C49243AE1D800C8526F /* CovidDashboardCollectionHolderCellViewModel.swift in Sources */,
@@ -541,6 +604,7 @@
 				448B3C46243AE13700C8526F /* CovidDashboardCollectionHolderCell.swift in Sources */,
 				448B3C0C2439BF9D00C8526F /* DynamicValue.swift in Sources */,
 				448B3C19243A0AE200C8526F /* NetworkError.swift in Sources */,
+				44081E14243C96DB006E82F5 /* CovidMapViewModel.swift in Sources */,
 				448B3C2C243AD69100C8526F /* CovidDashboardCollectionCell.swift in Sources */,
 				448B3C26243A10F100C8526F /* CovidAllCases.swift in Sources */,
 			);

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 extension UIColor {
     /// Initialises UIColor with custom app colors
@@ -202,5 +203,35 @@ extension NibInstantiatable where Self: UIView {
         let bundle = Bundle(for: self)
         let nib = bundle.loadNibNamed(nibName(), owner: self, options: nil)
         return nib?.first as? Self
+    }
+}
+
+extension MKMapView {
+    func fitMapViewToAnnotaionList(annotations: [MKAnnotation], userLocation: CLLocationCoordinate2D) -> Void {
+        let mapEdgePadding = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        var zoomRect = MKMapRect.null
+
+        for index in 0..<annotations.count {
+            let annotation = annotations[index]
+            let aPoint:MKMapPoint = MKMapPoint(annotation.coordinate)
+            let rect:MKMapRect = MKMapRect(x: aPoint.x, y: aPoint.y, width: 0.1, height: 0.1)
+
+            if zoomRect.isNull {
+                zoomRect = rect
+            } else {
+                zoomRect = zoomRect.union(rect)
+            }
+        }
+
+        let aPoint = MKMapPoint(userLocation)
+        let rect = MKMapRect(x: aPoint.x, y: aPoint.y, width: 0.1, height: 0.1)
+
+        if zoomRect.isNull {
+            zoomRect = rect
+        } else {
+            zoomRect = zoomRect.union(rect)
+        }
+        
+        self.setVisibleMapRect(zoomRect, edgePadding: mapEdgePadding, animated: true)
     }
 }
