@@ -19,6 +19,9 @@ class CovidDetailsViewController: UICollectionViewController {
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+        overrideUserInterfaceStyle = .dark
+        navigationController?.overrideUserInterfaceStyle = .dark
+
         title = viewModel?.countryName
 
         // Setup

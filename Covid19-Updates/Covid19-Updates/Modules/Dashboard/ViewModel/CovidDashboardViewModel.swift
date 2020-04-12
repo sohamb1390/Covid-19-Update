@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum CovidDashboardSection: String, CaseIterable {
     case all = "Total cases Worldwide"
@@ -38,11 +39,11 @@ final class CovidDashboardViewModel: NSObject {
     }
     
     var searchbarPlaceholder: String {
-        return NSLocalizedString("Try searching using city names", comment: "")
+        return NSLocalizedString("Try searching using Country names", comment: "")
     }
     
     var navigationTitle: String {
-        return NSLocalizedString("Covid-19", comment: "")
+        return NSLocalizedString("Global Covid-19", comment: "")
     }
     
     var dashboardTabBarTitle: String {
@@ -51,6 +52,25 @@ final class CovidDashboardViewModel: NSObject {
     
     var mapTabBarTitle: String {
         return NSLocalizedString("Map", comment: "")
+    }
+    
+    var chartTabBarTitle: String {
+        return NSLocalizedString("Chart", comment: "")
+    }
+    
+    static var imageFolderPath: URL? {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        guard let documentsDirectory = paths.first else {
+            return nil
+        }
+        let docURL = URL(string: documentsDirectory)!
+        let dataPath = docURL.appendingPathComponent("FlagIcons")
+        return dataPath
+    }
+    
+    override init() {
+        super.init()
+        createIconsFolder()
     }
     
     // MARK: - Fetch Data
@@ -79,11 +99,76 @@ final class CovidDashboardViewModel: NSObject {
                 if let countryData = countryCases as? [Covid19Cases] {
                     self?.coutntryWiseCases = countryData.sorted(by: { ($0.cases ?? Int64(0)) > ($1.cases ?? Int64(0)) })
                     CovidSharedData.shared.countryWiseCases = countryData
-                    self?.setupCountryWiseCellViewModel()
+                    // Download the flag icons
+                    self?.downloadFlagIcons(from: countryData, onCompletion: {
+                        // Download John Hopkins Data
+                        self?.fetchJohnHopkinsCountryWiseData {
+                            self?.setupCountryWiseCellViewModel()
+                            return
+                        }
+                    })
+                } else {
+                    self?.response.value = (result: error, isSuccess: false)
+                }
+            }
+        }
+    }
+    
+    private func fetchJohnHopkinsCountryWiseData(_ onCompletion: @escaping (() -> Void)) {
+        fetcher.getJohnHopkinsCountryWiseData { [weak self] (countryCases, error) in
+            self?.showLoader.value = false
+            
+            if let error = error {
+                DPrint("Error downloading john hopkins data: \(error.localizedDescription)")
+                onCompletion()
+                return
+            } else {
+                if let countryData = countryCases as? [CovidJohnHopkinsData] {
+                    CovidSharedData.shared.johnHopkinsCountryWiseCase = countryData
+                    onCompletion()
                     return
                 }
             }
-            self?.response.value = (result: error, isSuccess: false)
+            onCompletion()
+        }
+    }
+    
+    private func downloadFlagIcons(from countryCases: [Covid19Cases], onCompletion: @escaping (() -> Void)) {
+        for (index, item) in countryCases.enumerated() {
+            if let countryURL = item.countryInfo?.flagURL {
+                fetcher.downloadFlagIcon(from: countryURL) { [weak self] (data, error) in
+                    if let data = data, let image = UIImage(data: data) {
+                        self?.saveIconFile(image, name: item.country ?? "")
+                    }
+                }
+            }
+            if index == countryCases.endIndex - 1 {
+                onCompletion()
+            }
+        }
+    }
+    
+    private func createIconsFolder() {
+        if let dataPath = CovidDashboardViewModel.imageFolderPath, !FileManager.default.fileExists(atPath: dataPath.absoluteString) {
+            do {
+                try FileManager.default.createDirectory(atPath: dataPath.absoluteString, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                DPrint(error.localizedDescription);
+            }
+        }
+    }
+    
+    private func saveIconFile(_ image: UIImage, name: String) {
+        if let dataPath = CovidDashboardViewModel.imageFolderPath {
+            let filepath = "\(dataPath.path)/\(name).png"
+            let url = URL(fileURLWithPath: filepath)
+            do {
+                try image.pngData()?.write(to: url)
+            } catch {
+                DPrint(error.localizedDescription)
+            }
+        } else {
+            DPrint("Image Folder Path is missing")
         }
     }
     

@@ -22,6 +22,7 @@ final class CovidAnnotationView: MKMarkerAnnotationView {
         subtitleVisibility = .visible
         animatesWhenAdded = true
         let calloutButton = UIButton(type: .detailDisclosure)
+        calloutButton.tintColor = UIColor(appColor: .base)
         rightCalloutAccessoryView = calloutButton
         canShowCallout = true
     }

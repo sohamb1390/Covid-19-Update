@@ -21,16 +21,22 @@ class CovidDashboardViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        overrideUserInterfaceStyle = .dark
+        
         bind(to: CovidDashboardViewModel())
         setupTableView()
         setupSearchBar()
-        setupNavigationItem()
         setupTabBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
+        updateNavigationBarTitle()
+        setupNavigationItem()
+        if tabBarController?.navigationItem.searchController == nil {
+            setupSearchBar()
+        }
         // Fetch Data
         viewModel?.fetchData()
     }
@@ -69,9 +75,16 @@ class CovidDashboardViewController: UIViewController {
                 subViewController.tabBarItem.title = viewModel?.dashboardTabBarTitle
             } else if subViewController.isKind(of: CovidDashboardViewController.self) {
                 subViewController.tabBarItem.title = viewModel?.mapTabBarTitle
+            } else if subViewController.isKind(of: CovidPieChartViewController.self) {
+                subViewController.tabBarItem.title = viewModel?.chartTabBarTitle
             }
         }
+        tabBarController?.navigationController?.overrideUserInterfaceStyle = .dark
+        tabBarController?.overrideUserInterfaceStyle = .dark
         tabBarController?.tabBar.tintColor = UIColor(appColor: .base)
+    }
+    
+    private func updateNavigationBarTitle() {
         tabBarController?.navigationItem.title = viewModel?.navigationTitle
     }
     

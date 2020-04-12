@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="J21-Av-Gig" firstAttribute="top" secondItem="jn3-jq-C8b" secondAttribute="bottom" constant="8" id="NHE-eW-i6u"/>
                             <constraint firstItem="jn3-jq-C8b" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ZJn-Mf-pm9"/>

@@ -108,14 +108,108 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Ftg-nZ-buM"/>
                         <segue destination="YsE-lb-Wmw" kind="relationship" relationship="viewControllers" id="Qld-Wx-weM"/>
+                        <segue destination="fll-gk-vON" kind="relationship" relationship="viewControllers" id="kIX-W3-UKp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0Z-iz-jxb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2019" y="883"/>
         </scene>
+        <!--Charts-->
+        <scene sceneID="DnW-Lj-48u">
+            <objects>
+                <viewController storyboardIdentifier="CovidPieChartViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fll-gk-vON" customClass="CovidPieChartViewController" customModule="Covid19_Updates" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FJr-HG-FMc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5b-9W-x9Y" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="195.5" width="414" height="700.5"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zimbabwe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sww-j9-VLn">
+                                <rect key="frame" x="20" y="160" width="101" height="26.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZD-ah-Rca">
+                                <rect key="frame" x="121" y="151.5" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="SL0-c6-6Bw"/>
+                                    <constraint firstAttribute="height" constant="44" id="xzV-5S-OPV"/>
+                                </constraints>
+                                <color key="tintColor" name="Base"/>
+                                <state key="normal" image="arrowtriangle.down.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="onTapCountryPicker:" destination="fll-gk-vON" eventType="touchUpInside" id="hyV-tf-bZW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KZD-ah-Rca" firstAttribute="leading" secondItem="sww-j9-VLn" secondAttribute="trailing" id="Ji4-9f-XQh"/>
+                            <constraint firstItem="b5b-9W-x9Y" firstAttribute="leading" secondItem="C2O-zX-n56" secondAttribute="leading" id="RlU-xA-jJa"/>
+                            <constraint firstItem="b5b-9W-x9Y" firstAttribute="top" secondItem="KZD-ah-Rca" secondAttribute="bottom" id="TbD-vY-hRp"/>
+                            <constraint firstItem="sww-j9-VLn" firstAttribute="leading" secondItem="C2O-zX-n56" secondAttribute="leading" constant="20" id="VnZ-pI-hGj"/>
+                            <constraint firstItem="b5b-9W-x9Y" firstAttribute="trailing" secondItem="C2O-zX-n56" secondAttribute="trailing" id="WXu-XW-Djk"/>
+                            <constraint firstAttribute="bottom" secondItem="b5b-9W-x9Y" secondAttribute="bottom" id="ahN-xg-DVJ"/>
+                            <constraint firstItem="sww-j9-VLn" firstAttribute="top" secondItem="C2O-zX-n56" secondAttribute="top" constant="20" id="k41-ND-Hht"/>
+                            <constraint firstItem="KZD-ah-Rca" firstAttribute="centerY" secondItem="sww-j9-VLn" secondAttribute="centerY" id="z9T-HO-vZv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="C2O-zX-n56"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Charts" image="chart.pie" catalog="system" id="KOz-s3-KhF"/>
+                    <connections>
+                        <outlet property="chartView" destination="b5b-9W-x9Y" id="Btj-m7-8Bh"/>
+                        <outlet property="countryNameLabel" destination="sww-j9-VLn" id="dl9-wZ-bQ1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9UZ-LJ-uq0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8.6956521739130448" y="900.66964285714278"/>
+        </scene>
+        <!--Covid Country Table View Controller-->
+        <scene sceneID="P1F-pF-76b">
+            <objects>
+                <tableViewController storyboardIdentifier="CovidCountryTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FKG-QN-Hfh" customClass="CovidCountryTableViewController" customModule="Covid19_Updates" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="k9w-8f-wpm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CovidCountryListCell" textLabel="9bs-DT-MLc" style="IBUITableViewCellStyleDefault" id="DwF-z9-x7d">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DwF-z9-x7d" id="SF1-BW-PmE">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="9bs-DT-MLc">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FKG-QN-Hfh" id="h7i-6f-F05"/>
+                            <outlet property="delegate" destination="FKG-QN-Hfh" id="NLu-UY-Fa6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uTv-pn-0kA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="813" y="912"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="arrowtriangle.down.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chart.pie" catalog="system" width="128" height="121"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="map" catalog="system" width="128" height="113"/>
         <namedColor name="Base">
