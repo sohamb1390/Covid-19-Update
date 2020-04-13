@@ -29,7 +29,7 @@ class CovidPieChartViewController: CovidChartBaseViewController {
         // Do any additional setup after loading the view.
         overrideUserInterfaceStyle = .dark
         
-        bind(to: PieChartViewViewModel(with: CovidSharedData.shared.johnHopkinsCountryWiseCase))
+        bind(to: PieChartViewViewModel(with: CovidSharedData.shared.countryWiseCases))
         setup()
         setup(pieChartView: chartView)
         chartView.delegate = self
@@ -48,7 +48,6 @@ class CovidPieChartViewController: CovidChartBaseViewController {
     
     // MARK: - Update UI
     private func updateNavigationBarTitle() {
-        tabBarController?.navigationItem.title = viewModel?.chartTitle
         tabBarController?.navigationItem.rightBarButtonItem = nil
     }
     
@@ -75,8 +74,8 @@ class CovidPieChartViewController: CovidChartBaseViewController {
         
         let set = PieChartDataSet(entries: entries, label: viewModel?.lastUpdatedAtText ?? "")
         set.drawIconsEnabled = true
-        set.sliceSpace = 1
-        set.colors = [.orange, UIColor(appColor: .red), UIColor(appColor: .base)]
+        set.sliceSpace = 0
+        set.colors = [.orange, UIColor(appColor: .red), UIColor(appColor: .green), UIColor(appColor: .base)]
         
         let data = PieChartData(dataSet: set)
         

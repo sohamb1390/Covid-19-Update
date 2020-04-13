@@ -47,12 +47,7 @@ final class CovidDashboardCollectionHolderCellViewModel: DashboardCellCommonMode
     // MARK: - Setup
     private func setupUpdatedDate() {
         if let updatedTime = updatedAt {
-            let unixTimeStamp: Double = Double(updatedTime) / 1000.0
-            let exactDate = Date(timeIntervalSince1970: unixTimeStamp)
-            CovidDateFormatter.shared.dateFormatter.timeStyle = .medium // Set time style
-            CovidDateFormatter.shared.dateFormatter.dateStyle = .medium // Set date style
-            CovidDateFormatter.shared.dateFormatter.timeZone = .current
-            timeStampText = CovidDateFormatter.shared.dateFormatter.string(from: exactDate)
+            timeStampText = GeneralConstants.convertTimeStampIntoText(for: updatedTime)
         }
     }
 

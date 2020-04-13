@@ -26,7 +26,8 @@ enum Covid19API {
     case allCases
     case hitCountries
     case countryFilter(country: String)
-    case johnHopkins
+    // Returning Invalid Data
+    // case johnHopkins
     case unitedStatesData
     case allCountriesLast30Days
 }
@@ -61,8 +62,9 @@ extension Covid19API: APIRequestProtocol {
             return "/countries?sort=country"
         case .countryFilter(let country):
             return "/countries/\(country)"
-        case .johnHopkins:
-            return "/v2/jhucsse"
+        // Returning Invalid Data
+        // case .johnHopkins:
+            // return "/v2/jhucsse"
         case .unitedStatesData:
             return "/states"
         case .allCountriesLast30Days:
@@ -75,7 +77,8 @@ extension Covid19API: APIRequestProtocol {
         case .allCases,
              .hitCountries,
              .countryFilter,
-             .johnHopkins,
+             // Returning Invalid Data
+             // .johnHopkins,
              .unitedStatesData,
              .allCountriesLast30Days: return .GET
         }

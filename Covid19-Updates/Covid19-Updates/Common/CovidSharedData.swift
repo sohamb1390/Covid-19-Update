@@ -11,10 +11,10 @@ import Foundation
 final class CovidSharedData {
     // MARK: Properties
     var countryWiseCases: [Covid19Cases] = []
-    var johnHopkinsCountryWiseCase: [CovidJohnHopkinsData] = []
+    // Returning Invalid Data
+    // var johnHopkinsCountryWiseCase: [CovidJohnHopkinsData] = []
     static let shared = CovidSharedData()
     
-    // MARK: - COnstructor
-    private init() {
-    }
+    // MARK: - Constructor
+    private init() {}
 }

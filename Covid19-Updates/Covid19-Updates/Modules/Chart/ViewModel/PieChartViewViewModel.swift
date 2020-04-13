@@ -11,29 +11,24 @@ import Charts
 
 final class PieChartViewViewModel: NSObject {
     // MARK: Properties
-    private var countryWiseData: [CovidJohnHopkinsData] = []
+    private var countryWiseData: [Covid19Cases] = []
     private (set) var selectedCountryName: Observable<String> = Observable()
     private var allCountries: [String] = []
     private var countryListViewModel: CovidCountryListViewModel?
-    var chartTitle: String {
-        return NSLocalizedString("John Hopkins Data", comment: "")
-    }
     var lastUpdatedAtText: String {
-        if let countryName = selectedCountryName.value, let details = countryWiseData.first(where: { $0.country == countryName || $0.province == countryName }), let lastUpdatedDate = details.updatedAt {
-            return "\(NSLocalizedString("Last updated at", comment: "")) \(lastUpdatedDate)"
+        if let countryName = selectedCountryName.value, let details = countryWiseData.first(where: { $0.country == countryName}), let timeStamp = details.timeStamp {
+            let timeStampText = GeneralConstants.convertTimeStampIntoText(for: timeStamp)
+            return "\(NSLocalizedString("Last updated at", comment: "")) \(timeStampText)"
         }
         return ""
     }
     
     // MARK: - Constructor
-    init(with data: [CovidJohnHopkinsData]) {
+    init(with data: [Covid19Cases]) {
         self.countryWiseData = data
         super.init()
         self.allCountries = data.map({ (details) in
-            if details.province == nil {
-                return details.country
-            }
-            return details.province
+            return details.country
             })
             .compactMap({ $0 })
             .sorted(by: { $0 < $1 })
@@ -44,17 +39,21 @@ final class PieChartViewViewModel: NSObject {
     // MARK: - Setup Datasource
     func setupData() -> [PieChartDataEntry] {
         var entries: [PieChartDataEntry] = []
-        if let fileterdCountryInfo = countryWiseData.first(where: { $0.province == selectedCountryName.value || $0.country == selectedCountryName.value }) {
-            if let totalItem = fileterdCountryInfo.stats?.confirmed, totalItem > 0 {
+        if let fileterdCountryInfo = countryWiseData.first(where: { $0.country == selectedCountryName.value }) {
+            if let totalItem = fileterdCountryInfo.cases, totalItem > 0 {
                 entries.append(PieChartDataEntry(value: Double(totalItem), label: NSLocalizedString("Cases", comment: "")))
             }
             
-            if let totalItem = fileterdCountryInfo.stats?.deaths, totalItem > 0 {
+            if let totalItem = fileterdCountryInfo.deaths, totalItem > 0 {
                 entries.append(PieChartDataEntry(value: Double(totalItem), label: NSLocalizedString("Deaths", comment: "")))
             }
             
-            if let totalItem = fileterdCountryInfo.stats?.recovered, totalItem > 0 {
+            if let totalItem = fileterdCountryInfo.recovered, totalItem > 0 {
                 entries.append(PieChartDataEntry(value: Double(totalItem), label: NSLocalizedString("Recovered", comment: "")))
+            }
+            
+            if let totalItem = fileterdCountryInfo.critical, totalItem > 0 {
+                entries.append(PieChartDataEntry(value: Double(totalItem), label: NSLocalizedString("Critical", comment: "")))
             }
         }
         return entries
@@ -73,13 +72,7 @@ final class PieChartViewViewModel: NSObject {
     func getCountryListViewModel() -> CovidCountryListViewModel {
         var countryDetails: [String: NSUIImage?] = [:]
         for countryName in allCountries {
-            var imageName = countryName
-            if countryName == "United Arab Emirates" {
-                imageName = "UAE"
-            } else if countryName == "United Kingdom" {
-                imageName = "UK"
-            }
-            let image = getFlagIcon(of: imageName)
+            let image = getFlagIcon(of: countryName)
             countryDetails[countryName] = image
         }
         let countryListViewModel = CovidCountryListViewModel(with: countryDetails, selectedCountryName: selectedCountryName.value ?? "")

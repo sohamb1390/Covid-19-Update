@@ -45,6 +45,15 @@ struct GeneralConstants {
             return NSLocalizedString(self.rawValue, comment: "")
         }
     }
+    
+    static func convertTimeStampIntoText(for timeStamp: Int64) -> String {
+        let unixTimeStamp: Double = Double(timeStamp) / 1000.0
+        let exactDate = Date(timeIntervalSince1970: unixTimeStamp)
+        CovidDateFormatter.shared.dateFormatter.timeStyle = .medium // Set time style
+        CovidDateFormatter.shared.dateFormatter.dateStyle = .medium // Set date style
+        CovidDateFormatter.shared.dateFormatter.timeZone = .current
+        return CovidDateFormatter.shared.dateFormatter.string(from: exactDate)
+    }
 }
 
 final class CovidDateFormatter: NSObject {

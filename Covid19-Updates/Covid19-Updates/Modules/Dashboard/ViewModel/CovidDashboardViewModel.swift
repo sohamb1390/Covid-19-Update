@@ -102,10 +102,7 @@ final class CovidDashboardViewModel: NSObject {
                     // Download the flag icons
                     self?.downloadFlagIcons(from: countryData, onCompletion: {
                         // Download John Hopkins Data
-                        self?.fetchJohnHopkinsCountryWiseData {
-                            self?.setupCountryWiseCellViewModel()
-                            return
-                        }
+                        self?.setupCountryWiseCellViewModel()
                     })
                 } else {
                     self?.response.value = (result: error, isSuccess: false)
@@ -114,24 +111,25 @@ final class CovidDashboardViewModel: NSObject {
         }
     }
     
-    private func fetchJohnHopkinsCountryWiseData(_ onCompletion: @escaping (() -> Void)) {
-        fetcher.getJohnHopkinsCountryWiseData { [weak self] (countryCases, error) in
-            self?.showLoader.value = false
-            
-            if let error = error {
-                DPrint("Error downloading john hopkins data: \(error.localizedDescription)")
-                onCompletion()
-                return
-            } else {
-                if let countryData = countryCases as? [CovidJohnHopkinsData] {
-                    CovidSharedData.shared.johnHopkinsCountryWiseCase = countryData
-                    onCompletion()
-                    return
-                }
-            }
-            onCompletion()
-        }
-    }
+    // Returning Invalid Data
+//    private func fetchJohnHopkinsCountryWiseData(_ onCompletion: @escaping (() -> Void)) {
+//        fetcher.getJohnHopkinsCountryWiseData { [weak self] (countryCases, error) in
+//            self?.showLoader.value = false
+//
+//            if let error = error {
+//                DPrint("Error downloading john hopkins data: \(error.localizedDescription)")
+//                onCompletion()
+//                return
+//            } else {
+//                if let countryData = countryCases as? [CovidJohnHopkinsData] {
+//                    CovidSharedData.shared.johnHopkinsCountryWiseCase = countryData
+//                    onCompletion()
+//                    return
+//                }
+//            }
+//            onCompletion()
+//        }
+//    }
     
     private func downloadFlagIcons(from countryCases: [Covid19Cases], onCompletion: @escaping (() -> Void)) {
         for (index, item) in countryCases.enumerated() {
@@ -148,6 +146,27 @@ final class CovidDashboardViewModel: NSObject {
         }
     }
     
+    private func setupCollectionViewCellViewModel() {
+        if let data = allCases {
+            collectionViewCellViewModel = CovidDashboardCollectionHolderCellViewModel(with: data)
+        }
+    }
+    
+    private func setupCountryWiseCellViewModel() {
+        if !coutntryWiseCases.isEmpty {
+            for countryData in coutntryWiseCases {
+                if let countryName = countryData.country {
+                    let caseNumber = countryData.cases ?? Int64(0.0)
+                    let vm = CovidDashboardCellViewModel(title: countryName, subtitle: "\(caseNumber)")
+                    originalCountryDataCellViewModels.append(vm)
+                    filteredCountryDataCellViewModels.append(vm)
+                }
+            }
+        }
+        response.value = (result: nil, isSuccess: true)
+    }
+    
+    // MARK: - Icon folders handler
     private func createIconsFolder() {
         if let dataPath = CovidDashboardViewModel.imageFolderPath, !FileManager.default.fileExists(atPath: dataPath.absoluteString) {
             do {
@@ -170,26 +189,6 @@ final class CovidDashboardViewModel: NSObject {
         } else {
             DPrint("Image Folder Path is missing")
         }
-    }
-    
-    private func setupCollectionViewCellViewModel() {
-        if let data = allCases {
-            collectionViewCellViewModel = CovidDashboardCollectionHolderCellViewModel(with: data)
-        }
-    }
-    
-    private func setupCountryWiseCellViewModel() {
-        if !coutntryWiseCases.isEmpty {
-            for countryData in coutntryWiseCases {
-                if let countryName = countryData.country {
-                    let caseNumber = countryData.cases ?? Int64(0.0)
-                    let vm = CovidDashboardCellViewModel(title: countryName, subtitle: "\(caseNumber)")
-                    originalCountryDataCellViewModels.append(vm)
-                    filteredCountryDataCellViewModels.append(vm)
-                }
-            }
-        }
-        response.value = (result: nil, isSuccess: true)
     }
     
     // MARK: - Datasource
