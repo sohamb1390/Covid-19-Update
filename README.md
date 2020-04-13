@@ -4,4 +4,4 @@
 ### I made this repo available on GH so that everyone can contribute and make this app available to most of the people who are still not aware of the situation going on right now.
 
 
-### Note: Please resolve the package dependency and change the code-signing in order to run the project.
+### Note: Please resolve the package (Swift Package Manager) dependency and change the code-signing in order to run the project.
