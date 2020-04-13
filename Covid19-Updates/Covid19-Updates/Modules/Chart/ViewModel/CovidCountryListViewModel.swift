@@ -15,6 +15,9 @@ final class CovidCountryListViewModel: NSObject {
     private var filteredCountryDetails: [String: UIImage?] = [:]
     private (set) var selectedCountryName: Observable<String> = Observable()
     private (set) var shouldReload: Observable<Bool> = Observable(true)
+    private var sortedKeys: [String] {
+        return filteredCountryDetails.keys.sorted(by: { $0 < $1 })
+    }
     var searchbarPlaceholder: String {
         return NSLocalizedString("Try searching using Country/Province names", comment: "")
     }
@@ -31,12 +34,12 @@ final class CovidCountryListViewModel: NSObject {
     
     // MARK: - Datasource
     func numberOfRows() -> Int {
-        return filteredCountryDetails.keys.count
+        return sortedKeys.count
     }
     
     func details(at indexPath: IndexPath) -> (name: String, image: UIImage?, isSelected: Bool)? {
         if filteredCountryDetails.keys.count > indexPath.row {
-            let key = Array(filteredCountryDetails.keys)[indexPath.row]
+            let key = Array(sortedKeys)[indexPath.row]
             if let image = filteredCountryDetails[key] {
                 return (name: key, image: image, isSelected: key == selectedCountryName.value)
             }
@@ -46,7 +49,7 @@ final class CovidCountryListViewModel: NSObject {
     
     func didSelect(at indexPath: IndexPath) {
         if filteredCountryDetails.keys.count > indexPath.row {
-            let key = Array(filteredCountryDetails.keys)[indexPath.row]
+            let key = Array(sortedKeys)[indexPath.row]
             selectedCountryName.value = key
         }
     }

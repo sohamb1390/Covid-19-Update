@@ -33,7 +33,7 @@ class CovidChartBaseViewController: UIViewController, ChartViewDelegate {
         chartView.holeRadiusPercent = 0.58
         chartView.transparentCircleRadiusPercent = 0.61
         chartView.chartDescription?.enabled = true
-        chartView.setExtraOffsets(left: 5, top: 30, right: 5, bottom: 30)
+        chartView.setExtraOffsets(left: 5, top: 5, right: 5, bottom: 5)
         chartView.drawCenterTextEnabled = true
         
         if let attributedString = attributedText {
