@@ -60,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-983" y="902"/>
+            <point key="canvasLocation" x="-572" y="883"/>
         </scene>
         <!--Map-->
         <scene sceneID="hwF-49-6C4">
@@ -92,7 +92,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cue-7L-Shu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-984.05797101449286" y="1670.7589285714284"/>
+            <point key="canvasLocation" x="-1055" y="1961"/>
+        </scene>
+        <!--API Resource-->
+        <scene sceneID="KEC-lW-tog">
+            <objects>
+                <viewController storyboardIdentifier="CovidWebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="n62-xX-Mvl" customClass="CovidWebViewController" customModule="Covid19_Updates" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9rX-HJ-JM3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="mkM-MX-pzi"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="API Resource" image="doc" catalog="system" id="EFx-Fy-jOV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kUg-0X-qsP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2484" y="1961"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="opi-hr-fTC">
@@ -109,6 +125,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Ftg-nZ-buM"/>
                         <segue destination="YsE-lb-Wmw" kind="relationship" relationship="viewControllers" id="Qld-Wx-weM"/>
                         <segue destination="fll-gk-vON" kind="relationship" relationship="viewControllers" id="kIX-W3-UKp"/>
+                        <segue destination="n62-xX-Mvl" kind="relationship" relationship="viewControllers" id="gM2-lZ-vo1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0Z-iz-jxb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -167,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9UZ-LJ-uq0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8.6956521739130448" y="900.66964285714278"/>
+            <point key="canvasLocation" x="154" y="1961"/>
         </scene>
         <!--Covid Country Table View Controller-->
         <scene sceneID="P1F-pF-76b">
@@ -210,6 +227,7 @@
     <resources>
         <image name="arrowtriangle.down.circle.fill" catalog="system" width="128" height="121"/>
         <image name="chart.pie" catalog="system" width="128" height="121"/>
+        <image name="doc" catalog="system" width="115" height="128"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="map" catalog="system" width="128" height="113"/>
         <namedColor name="Base">

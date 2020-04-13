@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4404EF7524442575002A58DB /* CovidWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404EF7424442575002A58DB /* CovidWebViewController.swift */; };
+		4404EF78244425DE002A58DB /* CovidWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404EF77244425DE002A58DB /* CovidWebViewModel.swift */; };
 		44081E0E243C34CF006E82F5 /* CovidMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44081E0D243C34CF006E82F5 /* CovidMapViewController.swift */; };
 		44081E14243C96DB006E82F5 /* CovidMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44081E13243C96DB006E82F5 /* CovidMapViewModel.swift */; };
 		44081E16243C97BB006E82F5 /* CovidAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44081E15243C97BB006E82F5 /* CovidAnnotationView.swift */; };
@@ -83,6 +85,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4404EF7424442575002A58DB /* CovidWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidWebViewController.swift; sourceTree = "<group>"; };
+		4404EF77244425DE002A58DB /* CovidWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidWebViewModel.swift; sourceTree = "<group>"; };
 		44081E0D243C34CF006E82F5 /* CovidMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidMapViewController.swift; sourceTree = "<group>"; };
 		44081E13243C96DB006E82F5 /* CovidMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidMapViewModel.swift; sourceTree = "<group>"; };
 		44081E15243C97BB006E82F5 /* CovidAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidAnnotationView.swift; sourceTree = "<group>"; };
@@ -172,6 +176,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4404EF7224442550002A58DB /* APIDoc */ = {
+			isa = PBXGroup;
+			children = (
+				4404EF76244425CF002A58DB /* ViewModel */,
+				4404EF732444255A002A58DB /* ViewController */,
+			);
+			path = APIDoc;
+			sourceTree = "<group>";
+		};
+		4404EF732444255A002A58DB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4404EF7424442575002A58DB /* CovidWebViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4404EF76244425CF002A58DB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4404EF77244425DE002A58DB /* CovidWebViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		44081E0B243C3481006E82F5 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +315,7 @@
 		448B3BF22439B67600C8526F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4404EF7224442550002A58DB /* APIDoc */,
 				44EFA05D244200180014F221 /* Chart */,
 				44081E0B243C3481006E82F5 /* Map */,
 				44A76831243B656A007162F4 /* Details */,
@@ -690,9 +720,11 @@
 				44EFA06C24420B320014F221 /* HistoricalDataFetcher.swift in Sources */,
 				448B3BFD2439BF2A00C8526F /* CovidDashboardCellViewModel.swift in Sources */,
 				448B3C082439BF9D00C8526F /* Binding.swift in Sources */,
+				4404EF78244425DE002A58DB /* CovidWebViewModel.swift in Sources */,
 				441CCB1824434FC300979FC5 /* CovidCountryListViewModel.swift in Sources */,
 				448B3C0B2439BF9D00C8526F /* BlockBasedSelector.m in Sources */,
 				448B3C4D243B0BFE00C8526F /* ShadowView.swift in Sources */,
+				4404EF7524442575002A58DB /* CovidWebViewController.swift in Sources */,
 				448B3C46243AE13700C8526F /* CovidDashboardCollectionHolderCell.swift in Sources */,
 				448B3C0C2439BF9D00C8526F /* DynamicValue.swift in Sources */,
 				448B3C19243A0AE200C8526F /* NetworkError.swift in Sources */,

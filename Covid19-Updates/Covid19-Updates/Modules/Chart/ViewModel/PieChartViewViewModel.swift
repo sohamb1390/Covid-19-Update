@@ -15,6 +15,9 @@ final class PieChartViewViewModel: NSObject {
     private (set) var selectedCountryName: Observable<String> = Observable()
     private var allCountries: [String] = []
     private var countryListViewModel: CovidCountryListViewModel?
+    var navigationTitle: String {
+        return NSLocalizedString("Global Covid-19 Graph", comment: "")
+    }
     var lastUpdatedAtText: String {
         if let countryName = selectedCountryName.value, let details = countryWiseData.first(where: { $0.country == countryName}), let timeStamp = details.timeStamp {
             let timeStampText = GeneralConstants.convertTimeStampIntoText(for: timeStamp)

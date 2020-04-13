@@ -39,6 +39,8 @@ class CovidPieChartViewController: CovidChartBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        tabBarController?.navigationItem.largeTitleDisplayMode = .never
+        
         tabBarController?.navigationItem.searchController = nil
         
         updateNavigationBarTitle()
@@ -49,6 +51,7 @@ class CovidPieChartViewController: CovidChartBaseViewController {
     // MARK: - Update UI
     private func updateNavigationBarTitle() {
         tabBarController?.navigationItem.rightBarButtonItem = nil
+        tabBarController?.navigationItem.title = viewModel?.navigationTitle
     }
     
     // MARK: - Setup Chart View

@@ -79,6 +79,7 @@ class CovidDashboardViewController: UIViewController {
                 subViewController.tabBarItem.title = viewModel?.chartTabBarTitle
             }
         }
+        tabBarController?.navigationItem.largeTitleDisplayMode = .always
         tabBarController?.navigationController?.overrideUserInterfaceStyle = .dark
         tabBarController?.overrideUserInterfaceStyle = .dark
         tabBarController?.tabBar.tintColor = UIColor(appColor: .base)
