@@ -63,6 +63,8 @@ class CovidDashboardViewController: UIViewController {
     }
     
     private func setupNavigationItem() {
+        tabBarController?.navigationController?.overrideUserInterfaceStyle = .dark
+        tabBarController?.navigationItem.largeTitleDisplayMode = .always
         let refreshNavigationItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(onTapRefresh(_:)))
         refreshNavigationItem.tintColor = UIColor(appColor: .base)
         refreshNavigationItem.style = .done
@@ -79,7 +81,6 @@ class CovidDashboardViewController: UIViewController {
                 subViewController.tabBarItem.title = viewModel?.chartTabBarTitle
             }
         }
-        tabBarController?.navigationItem.largeTitleDisplayMode = .always
         tabBarController?.navigationController?.overrideUserInterfaceStyle = .dark
         tabBarController?.overrideUserInterfaceStyle = .dark
         tabBarController?.tabBar.tintColor = UIColor(appColor: .base)
