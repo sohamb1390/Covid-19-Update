@@ -890,6 +890,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CD6F43NYAS;
 				INFOPLIST_FILE = "Covid19-Updates/Info.plist";
@@ -898,7 +899,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.soham.Covid19-Updates";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.soham.Covid19-Updates-GH";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Covid19-Updates/Covid19-Updates-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -910,6 +911,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CD6F43NYAS;
 				INFOPLIST_FILE = "Covid19-Updates/Info.plist";
@@ -918,7 +920,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.soham.Covid19-Updates";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.soham.Covid19-Updates-GH";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Covid19-Updates/Covid19-Updates-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

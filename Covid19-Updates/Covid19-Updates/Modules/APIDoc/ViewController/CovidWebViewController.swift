@@ -29,9 +29,7 @@ class CovidWebViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateNavigationBarTitle()
-        tabBarController?.navigationItem.largeTitleDisplayMode = .always
-        tabBarController?.navigationItem.searchController = nil
-        tabBarController?.navigationItem.rightBarButtonItem = nil
+        setupNavigationItem()
     }
     
     // MARK: - Setup
@@ -48,6 +46,13 @@ class CovidWebViewController: UIViewController {
                 webView.load(URLRequest(url: url))
             }
         }
+    }
+    
+    private func setupNavigationItem() {
+        navigationController?.isNavigationBarHidden = false
+        tabBarController?.navigationItem.largeTitleDisplayMode = .always
+        tabBarController?.navigationItem.searchController = nil
+        tabBarController?.navigationItem.rightBarButtonItem = nil
     }
     
     private func setupRefreshControl() {

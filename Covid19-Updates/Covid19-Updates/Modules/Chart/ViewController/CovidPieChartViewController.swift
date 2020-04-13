@@ -43,6 +43,8 @@ class CovidPieChartViewController: CovidChartBaseViewController {
         
         tabBarController?.navigationItem.searchController = nil
         
+        tabBarController?.navigationController?.isNavigationBarHidden = false
+        
         updateNavigationBarTitle()
         // Fetch Data
         updateChartData()
