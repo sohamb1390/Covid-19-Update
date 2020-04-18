@@ -18,7 +18,7 @@ enum HTTPMethod: String {
 
 /// Detourz Service URLs
 struct Covid19Service {
-    static let baseURL = "https://corona.lmao.ninja"
+    static let baseURL = "https://corona.lmao.ninja/v2"
 }
 
 /// API path Enum
@@ -68,7 +68,7 @@ extension Covid19API: APIRequestProtocol {
         case .unitedStatesData:
             return "/states"
         case .allCountriesLast30Days:
-            return "/v2/historical?lastdays=30"
+            return "/historical?lastdays=30"
         }
     }
     
