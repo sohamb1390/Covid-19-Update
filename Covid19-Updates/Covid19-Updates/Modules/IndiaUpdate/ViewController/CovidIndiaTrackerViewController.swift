@@ -23,11 +23,12 @@ class CovidIndiaTrackerViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupTableView()
         bind(to: CovidIndiaTrackerViewModel())
-        updateNavigationBarTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+        updateNavigationBarTitle()
         viewModel?.fetchIndiaData()
     }
     
