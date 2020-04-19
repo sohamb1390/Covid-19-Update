@@ -39,9 +39,9 @@ class CovidIndiaCollectionTableViewCell: UITableViewCell {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if context == &myContext,
             keyPath == #keyPath(UICollectionView.contentSize) {
-            if let contentSize = change?[NSKeyValueChangeKey.newKey] as? CGSize, contentSize.height > 200.0 {
+            if let contentSize = change?[NSKeyValueChangeKey.newKey] as? CGSize {
                 heightConstraint.constant = contentSize.height
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                     self.layoutIfNeeded()
                     self.tableView?.beginUpdates()
                     self.tableView?.endUpdates()

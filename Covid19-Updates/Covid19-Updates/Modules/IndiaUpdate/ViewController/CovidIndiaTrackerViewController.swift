@@ -40,7 +40,9 @@ class CovidIndiaTrackerViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.showsVerticalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
+        
         tableView.register(UINib(nibName: CovidIndiaCollectionTableViewCell.className, bundle: .main), forCellReuseIdentifier: CovidIndiaCollectionTableViewCell.className)
+        tableView.register(UINib(nibName: CovidIndiaStateCell.className, bundle: .main), forCellReuseIdentifier: CovidIndiaStateCell.className)
     }
     
     private func updateNavigationBarTitle() {
@@ -68,8 +70,14 @@ extension CovidIndiaTrackerViewController: UITableViewDelegate, UITableViewDataS
                 cell.bind(to: cellVM)
                 cell.selectionStyle = .none
                 return cell
-            default:
-                return UITableViewCell()
+            case .stateList:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: CovidIndiaStateCell.className, for: indexPath) as? CovidIndiaStateCell,
+                    let cellVM = vm.cellViewModel(at: indexPath) else {
+                    return UITableViewCell()
+                }
+                cell.bind(to: cellVM)
+                cell.selectionStyle = .none
+                return cell
             }
         }
         return UITableViewCell()

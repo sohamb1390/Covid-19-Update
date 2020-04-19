@@ -25,6 +25,8 @@ final class CovidIndiaTrackerViewModel: NSObject {
     private let fetcher = CovidIndiaDataFetcher()
     private let sections = CovidIndiaTrackerTableSection.allCases
     private var summaryCellViewModel: DashboardCellCommonModelable?
+    private var stateUpdatesCellViewModels: [DashboardCellCommonModelable] = []
+    
     var loaderText: String {
         return NSLocalizedString("Fetching Latest Updates", comment: "")
     }
@@ -65,6 +67,13 @@ final class CovidIndiaTrackerViewModel: NSObject {
     }
     
     private func setupStateListCellViewModel() {
+        var cellVMs: [DashboardCellCommonModelable] = []
+        let stateData = (indiaTrackerData?.data?.regionalUpdates ?? []).sorted(by: { $0.totalCases ?? Int64(0) > $1.totalCases ?? Int64(0) })
+        for stateUpdate in stateData {
+            let stateCellViewModel = CovidIndiaStateCellViewModel(locationName: stateUpdate.locationName ?? "", casesCount: stateUpdate.totalCases == nil ? "" : "\(stateUpdate.totalCases!)", fatalityCount: stateUpdate.totalDeaths == nil ? "" : "\(stateUpdate.totalDeaths!)", recoveredCount: stateUpdate.totalRecovered == nil ? "" : "\(stateUpdate.totalRecovered!)", infectedIndiansCount: stateUpdate.confirmedInfectedIndians == nil ? "" : "\(stateUpdate.confirmedInfectedIndians!)", infectedForeignersCount: stateUpdate.confirmedInfectedForeigners == nil ? "" : "\(stateUpdate.confirmedInfectedForeigners!)")
+            cellVMs.append(stateCellViewModel)
+        }
+        stateUpdatesCellViewModels = cellVMs
         response.value = (isSuccess: true, error: nil)
     }
     
@@ -76,7 +85,7 @@ final class CovidIndiaTrackerViewModel: NSObject {
     func numberOfRows(in section: Int) -> Int {
         if sections.count > section {
             let section = sections[section]
-            return section == .some(.summary) ? 1 : indiaTrackerData?.data?.regionalUpdates?.count ?? 0
+            return section == .some(.summary) ? 1 : stateUpdatesCellViewModels.count
         }
         return 0
     }
@@ -86,7 +95,11 @@ final class CovidIndiaTrackerViewModel: NSObject {
             let section = sections[indexPath.section]
             switch section {
             case .summary: return summaryCellViewModel
-            default: return nil
+            case .stateList:
+                if stateUpdatesCellViewModels.count > indexPath.row {
+                    let cellVM = stateUpdatesCellViewModels[indexPath.row]
+                    return cellVM
+                }
             }
         }
         return nil

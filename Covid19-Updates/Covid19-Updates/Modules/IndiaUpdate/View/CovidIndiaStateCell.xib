@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CovidIndiaStateCell" id="KGk-i7-Jjw" customClass="CovidIndiaStateCell" customModule="Covid19_Updates" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="755" text="Anadaman Nicobar Islands" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNf-OM-X7P">
+                        <rect key="frame" x="12" y="12" width="296" height="20.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Cases:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvA-pz-YLK">
+                        <rect key="frame" x="12" y="40.5" width="46.5" height="18"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <color key="textColor" name="SubtitleText"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="29990" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxF-8x-1li">
+                        <rect key="frame" x="62.5" y="39" width="54.5" height="21"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Fatalities:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WjI-fD-kdW">
+                        <rect key="frame" x="125" y="40.5" width="65" height="18"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <color key="textColor" name="SubtitleText"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29990" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOu-2b-iqI">
+                        <rect key="frame" x="194" y="39" width="114" height="21"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <color key="textColor" name="AppRed"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Recovered:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywa-b7-LZF">
+                        <rect key="frame" x="12" y="70.5" width="77" height="18"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <color key="textColor" name="SubtitleText"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="29990" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4x-aP-T9j">
+                        <rect key="frame" x="93" y="69" width="54.5" height="21"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <color key="textColor" name="AppGreen"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="254" verticalCompressionResistancePriority="754" text="Infected Indians:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3v-mL-JEJ">
+                        <rect key="frame" x="12" y="100.5" width="113.5" height="18"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <color key="textColor" name="SubtitleText"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="29990" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGt-yS-30l">
+                        <rect key="frame" x="129.5" y="100" width="49" height="19.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                        <color key="textColor" red="0.85490196080000003" green="0.64705882349999999" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="254" verticalCompressionResistancePriority="753" text="Infected Foreigners:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egP-ZS-C0I">
+                        <rect key="frame" x="12" y="130.5" width="137.5" height="18"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <color key="textColor" name="SubtitleText"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="29990" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yP-mR-0Pc">
+                        <rect key="frame" x="153.5" y="130" width="49" height="19.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                        <color key="textColor" red="0.85490196080000003" green="0.64705882349999999" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ywa-b7-LZF" firstAttribute="leading" secondItem="WvA-pz-YLK" secondAttribute="leading" id="2dZ-2p-ZD6"/>
+                    <constraint firstItem="6yP-mR-0Pc" firstAttribute="centerY" secondItem="egP-ZS-C0I" secondAttribute="centerY" id="2wp-zB-f5N"/>
+                    <constraint firstItem="egP-ZS-C0I" firstAttribute="leading" secondItem="k3v-mL-JEJ" secondAttribute="leading" id="3zf-zy-slK"/>
+                    <constraint firstItem="WjI-fD-kdW" firstAttribute="centerY" secondItem="VxF-8x-1li" secondAttribute="centerY" id="6C9-9f-sEl"/>
+                    <constraint firstItem="J4x-aP-T9j" firstAttribute="leading" secondItem="Ywa-b7-LZF" secondAttribute="trailing" constant="4" id="7LF-mN-QRT"/>
+                    <constraint firstAttribute="trailing" secondItem="iOu-2b-iqI" secondAttribute="trailing" constant="12" id="7pR-4D-h8g"/>
+                    <constraint firstItem="EGt-yS-30l" firstAttribute="leading" secondItem="k3v-mL-JEJ" secondAttribute="trailing" constant="4" id="83p-ih-qcB"/>
+                    <constraint firstItem="tNf-OM-X7P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="B57-1C-Dpt"/>
+                    <constraint firstItem="EGt-yS-30l" firstAttribute="centerY" secondItem="k3v-mL-JEJ" secondAttribute="centerY" id="BEp-zy-mBN"/>
+                    <constraint firstItem="egP-ZS-C0I" firstAttribute="top" secondItem="k3v-mL-JEJ" secondAttribute="bottom" constant="12" id="DUP-Dn-npF"/>
+                    <constraint firstItem="WjI-fD-kdW" firstAttribute="leading" secondItem="VxF-8x-1li" secondAttribute="trailing" constant="8" id="IkI-G9-l1A"/>
+                    <constraint firstItem="WvA-pz-YLK" firstAttribute="top" secondItem="tNf-OM-X7P" secondAttribute="bottom" constant="8" id="JGV-jl-9Cb"/>
+                    <constraint firstAttribute="trailing" secondItem="tNf-OM-X7P" secondAttribute="trailing" constant="12" id="O3Y-OP-9rb"/>
+                    <constraint firstItem="J4x-aP-T9j" firstAttribute="centerY" secondItem="Ywa-b7-LZF" secondAttribute="centerY" id="P4q-m5-75q"/>
+                    <constraint firstItem="Ywa-b7-LZF" firstAttribute="top" secondItem="WvA-pz-YLK" secondAttribute="bottom" constant="12" id="RyV-5J-Ecl"/>
+                    <constraint firstItem="6yP-mR-0Pc" firstAttribute="leading" secondItem="egP-ZS-C0I" secondAttribute="trailing" constant="4" id="Wmd-x5-JxR"/>
+                    <constraint firstItem="WvA-pz-YLK" firstAttribute="leading" secondItem="tNf-OM-X7P" secondAttribute="leading" id="Y0b-Hw-Wac"/>
+                    <constraint firstItem="VxF-8x-1li" firstAttribute="centerY" secondItem="WvA-pz-YLK" secondAttribute="centerY" id="auH-OH-x3k"/>
+                    <constraint firstItem="VxF-8x-1li" firstAttribute="leading" secondItem="WvA-pz-YLK" secondAttribute="trailing" constant="4" id="bXZ-fJ-IIn"/>
+                    <constraint firstItem="iOu-2b-iqI" firstAttribute="leading" secondItem="WjI-fD-kdW" secondAttribute="trailing" constant="4" id="dSA-O1-juJ"/>
+                    <constraint firstAttribute="bottom" secondItem="egP-ZS-C0I" secondAttribute="bottom" priority="750" constant="12" id="k1c-0r-noN"/>
+                    <constraint firstItem="k3v-mL-JEJ" firstAttribute="top" secondItem="Ywa-b7-LZF" secondAttribute="bottom" constant="12" id="mGA-JN-vZQ"/>
+                    <constraint firstItem="tNf-OM-X7P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="r0G-Gi-WBF"/>
+                    <constraint firstItem="k3v-mL-JEJ" firstAttribute="leading" secondItem="Ywa-b7-LZF" secondAttribute="leading" id="rRq-u4-5iy"/>
+                    <constraint firstItem="iOu-2b-iqI" firstAttribute="centerY" secondItem="WjI-fD-kdW" secondAttribute="centerY" id="x2a-41-H2R"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="caseCountTitleLabel" destination="WvA-pz-YLK" id="cqJ-mq-cee"/>
+                <outlet property="confirmedCaseCountLabel" destination="VxF-8x-1li" id="bjh-RS-MUf"/>
+                <outlet property="confirmedFatalityCountLabel" destination="iOu-2b-iqI" id="CSE-FB-t0X"/>
+                <outlet property="confirmedForeignerCaseCountLabel" destination="6yP-mR-0Pc" id="Bqh-7x-Suj"/>
+                <outlet property="confirmedIndianCaseCountLabel" destination="EGt-yS-30l" id="dkj-ET-I8E"/>
+                <outlet property="confirmedRecoveredCountLabel" destination="J4x-aP-T9j" id="omU-fb-Brh"/>
+                <outlet property="fatalityTitleLabel" destination="WjI-fD-kdW" id="BPz-2p-Wkt"/>
+                <outlet property="foreignerCountTitleLabel" destination="egP-ZS-C0I" id="vxW-IN-qgP"/>
+                <outlet property="indianCountTitleLabel" destination="k3v-mL-JEJ" id="1GH-N6-YV2"/>
+                <outlet property="locationNameLabel" destination="tNf-OM-X7P" id="faY-Di-Tol"/>
+                <outlet property="recoveredCountTitleLabel" destination="Ywa-b7-LZF" id="W3J-fs-hbr"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="AppGreen">
+            <color red="0.3880000114440918" green="0.71799999475479126" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppRed">
+            <color red="0.94099998474121094" green="0.31400001049041748" blue="0.31400001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SubtitleText">
+            <color red="0.59200000762939453" green="0.59200000762939453" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

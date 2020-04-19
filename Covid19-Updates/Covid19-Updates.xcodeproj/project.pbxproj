@@ -79,6 +79,9 @@
 		44EFA06C24420B320014F221 /* HistoricalDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EFA06B24420B320014F221 /* HistoricalDataFetcher.swift */; };
 		44EFA06F24420F260014F221 /* PieChartViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EFA06E24420F260014F221 /* PieChartViewViewModel.swift */; };
 		44EFA0712442ECD90014F221 /* CovidJohnHopkinsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EFA0702442ECD90014F221 /* CovidJohnHopkinsData.swift */; };
+		44FF29C7244C8C5B002EEA6D /* CovidIndiaStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF29C5244C8C5B002EEA6D /* CovidIndiaStateCell.swift */; };
+		44FF29C8244C8C5B002EEA6D /* CovidIndiaStateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44FF29C6244C8C5B002EEA6D /* CovidIndiaStateCell.xib */; };
+		44FF29CA244C9253002EEA6D /* CovidIndiaStateCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF29C9244C9253002EEA6D /* CovidIndiaStateCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +171,9 @@
 		44EFA06B24420B320014F221 /* HistoricalDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalDataFetcher.swift; sourceTree = "<group>"; };
 		44EFA06E24420F260014F221 /* PieChartViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewViewModel.swift; sourceTree = "<group>"; };
 		44EFA0702442ECD90014F221 /* CovidJohnHopkinsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidJohnHopkinsData.swift; sourceTree = "<group>"; };
+		44FF29C5244C8C5B002EEA6D /* CovidIndiaStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidIndiaStateCell.swift; sourceTree = "<group>"; };
+		44FF29C6244C8C5B002EEA6D /* CovidIndiaStateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CovidIndiaStateCell.xib; sourceTree = "<group>"; };
+		44FF29C9244C9253002EEA6D /* CovidIndiaStateCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidIndiaStateCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +291,8 @@
 			children = (
 				447FD2E9244B68290091C25B /* CovidIndiaCollectionTableViewCell.swift */,
 				447FD2EA244B68290091C25B /* CovidIndiaCollectionTableViewCell.xib */,
+				44FF29C5244C8C5B002EEA6D /* CovidIndiaStateCell.swift */,
+				44FF29C6244C8C5B002EEA6D /* CovidIndiaStateCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,6 +310,7 @@
 			children = (
 				447FD2F2244B6A3C0091C25B /* CovidIndiaCollectionTableViewCellViewModel.swift */,
 				447FD2FC244B80810091C25B /* CovidIndiaTrackerViewModel.swift */,
+				44FF29C9244C9253002EEA6D /* CovidIndiaStateCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -721,6 +730,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44FF29C8244C8C5B002EEA6D /* CovidIndiaStateCell.xib in Resources */,
 				448B3C3C243ADF4F00C8526F /* LICENSE in Resources */,
 				44A76839243B663E007162F4 /* CovidDetails.storyboard in Resources */,
 				448B3BF82439B71500C8526F /* CovidDashboardCell.xib in Resources */,
@@ -799,6 +809,8 @@
 				4404EF78244425DE002A58DB /* CovidWebViewModel.swift in Sources */,
 				441CCB1824434FC300979FC5 /* CovidCountryListViewModel.swift in Sources */,
 				448B3C0B2439BF9D00C8526F /* BlockBasedSelector.m in Sources */,
+				44FF29CA244C9253002EEA6D /* CovidIndiaStateCellViewModel.swift in Sources */,
+				44FF29C7244C8C5B002EEA6D /* CovidIndiaStateCell.swift in Sources */,
 				448B3C4D243B0BFE00C8526F /* ShadowView.swift in Sources */,
 				4404EF7524442575002A58DB /* CovidWebViewController.swift in Sources */,
 				448B3C46243AE13700C8526F /* CovidDashboardCollectionHolderCell.swift in Sources */,

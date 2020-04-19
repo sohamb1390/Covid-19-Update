@@ -28,10 +28,12 @@ final class CovidIndiaCollectionTableViewCellViewModel: DashboardCellCommonModel
     }
     private var data: CovidIndiaSummary
     private var lastRefreshedDate: Date?
+    private var cellViewModels: [CovidDashboardCellViewModel] = []
     
     // MARK: - Constructor
     init(with data: CovidIndiaSummary, lastUpdatedDate: Date?) {
         self.data = data
+        self.setupCellViewModels()
         self.lastRefreshedDate = lastUpdatedDate
     }
     
@@ -52,43 +54,50 @@ final class CovidIndiaCollectionTableViewCellViewModel: DashboardCellCommonModel
         return rows.count
     }
     
-    func item(at indexPath: IndexPath) -> CovidDashboardCellViewModel? {
-        if rows.count > indexPath.row {
-            let row = rows[indexPath.row]
+    func setupCellViewModels() {
+        var cellVMs: [CovidDashboardCellViewModel] = []
+        for row in rows {
             let title = row.localized()
             let notAvailableItem = (title: title, details: GeneralConstants.ReusableText.notAvailableString.localized())
             switch row {
             case .totalCases:
                 if let totalCases = data.totalCase {
-                    return CovidDashboardCellViewModel(title: title, subtitle: "\(totalCases)")
+                    cellVMs.append(CovidDashboardCellViewModel(title: title, subtitle: "\(totalCases)"))
                 } else {
-                    return CovidDashboardCellViewModel(title: title, subtitle: "\(notAvailableItem)")
+                    cellVMs.append(CovidDashboardCellViewModel(title: title, subtitle: "\(notAvailableItem)"))
                 }
             case .indianCases:
                 if let totalCases = data.confirmedInfectedIndians {
-                    return CovidDashboardCellViewModel(title: title, subtitle: "\(totalCases)")
+                    cellVMs.append(CovidDashboardCellViewModel(title: title, subtitle: "\(totalCases)"))
                 } else {
-                    return CovidDashboardCellViewModel(title: title, subtitle: "\(notAvailableItem)")
+                    cellVMs.append(CovidDashboardCellViewModel(title: title, subtitle: "\(notAvailableItem)"))
                 }
             case .foreignerCases:
                 if let totalCases = data.confirmedInfectedForeigners {
-                    return CovidDashboardCellViewModel(title: title, subtitle: "\(totalCases)")
+                    cellVMs.append(CovidDashboardCellViewModel(title: title, subtitle: "\(totalCases)"))
                 } else {
-                    return CovidDashboardCellViewModel(title: title, subtitle: "\(notAvailableItem)")
+                    cellVMs.append(CovidDashboardCellViewModel(title: title, subtitle: "\(notAvailableItem)"))
                 }
             case .totalDeaths:
                 if let totalCases = data.totalDeaths {
-                    return CovidDashboardCellViewModel(title: title, subtitle: "\(totalCases)")
+                    cellVMs.append(CovidDashboardCellViewModel(title: title, subtitle: "\(totalCases)"))
                 } else {
-                    return CovidDashboardCellViewModel(title: title, subtitle: "\(notAvailableItem)")
+                    cellVMs.append(CovidDashboardCellViewModel(title: title, subtitle: "\(notAvailableItem)"))
                 }
             case .totalDischarged:
                 if let totalCases = data.totalRecovered {
-                    return CovidDashboardCellViewModel(title: title, subtitle: "\(totalCases)")
+                    cellVMs.append(CovidDashboardCellViewModel(title: title, subtitle: "\(totalCases)"))
                 } else {
-                    return CovidDashboardCellViewModel(title: title, subtitle: "\(notAvailableItem)")
+                    cellVMs.append(CovidDashboardCellViewModel(title: title, subtitle: "\(notAvailableItem)"))
                 }
             }
+        }
+        cellViewModels = cellVMs
+    }
+    
+    func item(at indexPath: IndexPath) -> CovidDashboardCellViewModel? {
+        if rows.count > indexPath.row {
+            return cellViewModels[indexPath.row]
         }
         return nil
     }
