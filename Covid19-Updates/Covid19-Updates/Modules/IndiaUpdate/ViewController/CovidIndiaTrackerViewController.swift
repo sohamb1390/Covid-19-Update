@@ -55,7 +55,7 @@ class CovidIndiaTrackerViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.showsVerticalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
-        
+        tableView.keyboardDismissMode = .interactive
         tableView.register(UINib(nibName: CovidIndiaCollectionTableViewCell.className, bundle: .main), forCellReuseIdentifier: CovidIndiaCollectionTableViewCell.className)
         tableView.register(UINib(nibName: CovidIndiaStateCell.className, bundle: .main), forCellReuseIdentifier: CovidIndiaStateCell.className)
     }

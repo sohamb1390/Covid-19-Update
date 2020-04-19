@@ -47,6 +47,7 @@ class CovidDashboardViewController: UIViewController {
         dashboardTableView.tableFooterView = UIView()
         dashboardTableView.showsVerticalScrollIndicator = false
         dashboardTableView.showsVerticalScrollIndicator = false
+        dashboardTableView.keyboardDismissMode = .interactive
         dashboardTableView.register(UINib(nibName: CovidDashboardCell.className, bundle: .main), forCellReuseIdentifier: CovidDashboardCell.className)
         dashboardTableView.register(UINib(nibName: CovidDashboardCollectionHolderCell.className, bundle: .main), forCellReuseIdentifier: CovidDashboardCollectionHolderCell.className)
     }
