@@ -78,11 +78,11 @@ extension UIFont {
         let descriptor = fontDescriptor.withSymbolicTraits(traits)
         return UIFont(descriptor: descriptor!, size: 0) //size 0 means keep the size as it is
     }
-
+    
     func bold() -> UIFont {
         return withTraits(traits: .traitBold)
     }
-
+    
     func italic() -> UIFont {
         return withTraits(traits: .traitItalic)
     }
@@ -210,22 +210,22 @@ extension MKMapView {
     func fitMapViewToAnnotaionList(annotations: [MKAnnotation], userLocation: CLLocationCoordinate2D) -> Void {
         let mapEdgePadding = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         var zoomRect = MKMapRect.null
-
+        
         for index in 0..<annotations.count {
             let annotation = annotations[index]
             let aPoint:MKMapPoint = MKMapPoint(annotation.coordinate)
             let rect:MKMapRect = MKMapRect(x: aPoint.x, y: aPoint.y, width: 0.1, height: 0.1)
-
+            
             if zoomRect.isNull {
                 zoomRect = rect
             } else {
                 zoomRect = zoomRect.union(rect)
             }
         }
-
+        
         let aPoint = MKMapPoint(userLocation)
         let rect = MKMapRect(x: aPoint.x, y: aPoint.y, width: 0.1, height: 0.1)
-
+        
         if zoomRect.isNull {
             zoomRect = rect
         } else {
@@ -234,4 +234,15 @@ extension MKMapView {
         
         self.setVisibleMapRect(zoomRect, edgePadding: mapEdgePadding, animated: true)
     }
+}
+
+extension DateFormatter {
+    static let iso8601Full: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
+    }()
 }

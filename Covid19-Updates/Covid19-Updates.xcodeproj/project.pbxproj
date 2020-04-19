@@ -20,6 +20,13 @@
 		441CCB1824434FC300979FC5 /* CovidCountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441CCB1724434FC300979FC5 /* CovidCountryListViewModel.swift */; };
 		441CCB1C24435C9400979FC5 /* CovidCountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441CCB1A24435C9400979FC5 /* CovidCountryCell.swift */; };
 		441CCB1D24435C9400979FC5 /* CovidCountryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 441CCB1B24435C9400979FC5 /* CovidCountryCell.xib */; };
+		447FD2EB244B68290091C25B /* CovidIndiaCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FD2E9244B68290091C25B /* CovidIndiaCollectionTableViewCell.swift */; };
+		447FD2EC244B68290091C25B /* CovidIndiaCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447FD2EA244B68290091C25B /* CovidIndiaCollectionTableViewCell.xib */; };
+		447FD2F3244B6A3C0091C25B /* CovidIndiaCollectionTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FD2F2244B6A3C0091C25B /* CovidIndiaCollectionTableViewCellViewModel.swift */; };
+		447FD2F6244B6CCD0091C25B /* CovidIndiaTrackerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FD2F5244B6CCD0091C25B /* CovidIndiaTrackerData.swift */; };
+		447FD2F9244B797B0091C25B /* CovidIndiaDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FD2F8244B797B0091C25B /* CovidIndiaDataFetcher.swift */; };
+		447FD2FB244B801E0091C25B /* CovidIndiaTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FD2FA244B801E0091C25B /* CovidIndiaTrackerViewController.swift */; };
+		447FD2FD244B80810091C25B /* CovidIndiaTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FD2FC244B80810091C25B /* CovidIndiaTrackerViewModel.swift */; };
 		448B3BCA2439AD8700C8526F /* CovidAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448B3BC92439AD8700C8526F /* CovidAppDelegate.swift */; };
 		448B3BD12439AD8700C8526F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 448B3BCF2439AD8700C8526F /* Main.storyboard */; };
 		448B3BD32439AD8C00C8526F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 448B3BD22439AD8C00C8526F /* Assets.xcassets */; };
@@ -98,6 +105,13 @@
 		441CCB1724434FC300979FC5 /* CovidCountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidCountryListViewModel.swift; sourceTree = "<group>"; };
 		441CCB1A24435C9400979FC5 /* CovidCountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidCountryCell.swift; sourceTree = "<group>"; };
 		441CCB1B24435C9400979FC5 /* CovidCountryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CovidCountryCell.xib; sourceTree = "<group>"; };
+		447FD2E9244B68290091C25B /* CovidIndiaCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidIndiaCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		447FD2EA244B68290091C25B /* CovidIndiaCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CovidIndiaCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		447FD2F2244B6A3C0091C25B /* CovidIndiaCollectionTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidIndiaCollectionTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		447FD2F5244B6CCD0091C25B /* CovidIndiaTrackerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidIndiaTrackerData.swift; sourceTree = "<group>"; };
+		447FD2F8244B797B0091C25B /* CovidIndiaDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidIndiaDataFetcher.swift; sourceTree = "<group>"; };
+		447FD2FA244B801E0091C25B /* CovidIndiaTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidIndiaTrackerViewController.swift; sourceTree = "<group>"; };
+		447FD2FC244B80810091C25B /* CovidIndiaTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidIndiaTrackerViewModel.swift; sourceTree = "<group>"; };
 		448B3BC62439AD8700C8526F /* Covid19-Updates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid19-Updates.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		448B3BC92439AD8700C8526F /* CovidAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidAppDelegate.swift; sourceTree = "<group>"; };
 		448B3BD02439AD8700C8526F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -245,6 +259,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		441C102F244B37E5007CB459 /* IndiaUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				447FD2F7244B79110091C25B /* Fetcher */,
+				447FD2F4244B6CB80091C25B /* Model */,
+				447FD2F1244B6A2B0091C25B /* ViewModel */,
+				447FD2E8244B67DC0091C25B /* ViewController */,
+				447FD2E7244B67D50091C25B /* View */,
+			);
+			path = IndiaUpdate;
+			sourceTree = "<group>";
+		};
 		441CCB1924435C7B00979FC5 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +278,48 @@
 				441CCB1B24435C9400979FC5 /* CovidCountryCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		447FD2E7244B67D50091C25B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				447FD2E9244B68290091C25B /* CovidIndiaCollectionTableViewCell.swift */,
+				447FD2EA244B68290091C25B /* CovidIndiaCollectionTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		447FD2E8244B67DC0091C25B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				447FD2FA244B801E0091C25B /* CovidIndiaTrackerViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		447FD2F1244B6A2B0091C25B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				447FD2F2244B6A3C0091C25B /* CovidIndiaCollectionTableViewCellViewModel.swift */,
+				447FD2FC244B80810091C25B /* CovidIndiaTrackerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		447FD2F4244B6CB80091C25B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				447FD2F5244B6CCD0091C25B /* CovidIndiaTrackerData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		447FD2F7244B79110091C25B /* Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				447FD2F8244B797B0091C25B /* CovidIndiaDataFetcher.swift */,
+			);
+			path = Fetcher;
 			sourceTree = "<group>";
 		};
 		448B3BBD2439AD8700C8526F = {
@@ -315,6 +383,7 @@
 		448B3BF22439B67600C8526F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				441C102F244B37E5007CB459 /* IndiaUpdate */,
 				4404EF7224442550002A58DB /* APIDoc */,
 				44EFA05D244200180014F221 /* Chart */,
 				44081E0B243C3481006E82F5 /* Map */,
@@ -665,6 +734,7 @@
 				441CCB1D24435C9400979FC5 /* CovidCountryCell.xib in Resources */,
 				448B3C47243AE13700C8526F /* CovidDashboardCollectionHolderCell.xib in Resources */,
 				448B3C41243ADF4F00C8526F /* IHProgressHUD.bundle in Resources */,
+				447FD2EC244B68290091C25B /* CovidIndiaCollectionTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,9 +764,13 @@
 				448B3C0A2439BF9D00C8526F /* UIControls+Bindable.swift in Sources */,
 				448B3C10243A098400C8526F /* CovidCommonProtocol.swift in Sources */,
 				448B3C1D243A0E0400C8526F /* CovidDashboardViewController.swift in Sources */,
+				447FD2F9244B797B0091C25B /* CovidIndiaDataFetcher.swift in Sources */,
+				447FD2FD244B80810091C25B /* CovidIndiaTrackerViewModel.swift in Sources */,
 				448B3C18243A0AE200C8526F /* NetworkAdapter.swift in Sources */,
 				448B3C29243A133C00C8526F /* CovidDashboardViewModel.swift in Sources */,
+				447FD2F6244B6CCD0091C25B /* CovidIndiaTrackerData.swift in Sources */,
 				441CCB1624434F9F00979FC5 /* CovidCountryTableViewController.swift in Sources */,
+				447FD2FB244B801E0091C25B /* CovidIndiaTrackerViewController.swift in Sources */,
 				448B3C3D243ADF4F00C8526F /* RadialGradientLayer.swift in Sources */,
 				44EFA06F24420F260014F221 /* PieChartViewViewModel.swift in Sources */,
 				44081E19243C97DC006E82F5 /* CovidAnnotation.swift in Sources */,
@@ -708,9 +782,11 @@
 				448B3C51243B151900C8526F /* CovidDashboardHeaderView.swift in Sources */,
 				448B3C072439BF9D00C8526F /* NSObject+Observable.swift in Sources */,
 				44081E0E243C34CF006E82F5 /* CovidMapViewController.swift in Sources */,
+				447FD2F3244B6A3C0091C25B /* CovidIndiaCollectionTableViewCellViewModel.swift in Sources */,
 				44EFA069244205D00014F221 /* HistoricalData.swift in Sources */,
 				448B3BF72439B71500C8526F /* CovidDashboardCell.swift in Sources */,
 				448B3C3F243ADF4F00C8526F /* ProgressAnimatedView.swift in Sources */,
+				447FD2EB244B68290091C25B /* CovidIndiaCollectionTableViewCell.swift in Sources */,
 				448B3C1A243A0AE200C8526F /* NetworkProtocol.swift in Sources */,
 				44081E21243CAA42006E82F5 /* CovidClusterAnnotationView.swift in Sources */,
 				448B3C092439BF9D00C8526F /* BlockBasedSelector.swift in Sources */,

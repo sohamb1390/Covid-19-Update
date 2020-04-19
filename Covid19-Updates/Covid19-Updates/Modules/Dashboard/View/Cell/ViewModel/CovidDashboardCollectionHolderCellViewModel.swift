@@ -11,13 +11,13 @@ import Foundation
 enum Row: String, CaseIterable {
     case all = "All Cases"
     case today = "Today"
-    case totalDeath = "Total Deaths"
-    case todayDeath = "Total Deaths Today"
+    case totalDeath = "Total Fatalities"
+    case todayDeath = "Total Fatalities Today"
     case recovered = "Recovered"
     case active = "Active"
     case critical = "Critical"
     case casePerOneMilion = "Cases per Million"
-    case deathsPerOneMilion = "Deaths per Million"
+    case deathsPerOneMilion = "Fatalities per Million"
     case affectedCountry = "Affected Countries"
     
     func localized() -> String {

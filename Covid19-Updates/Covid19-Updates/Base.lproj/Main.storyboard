@@ -124,6 +124,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Ftg-nZ-buM"/>
                         <segue destination="YsE-lb-Wmw" kind="relationship" relationship="viewControllers" id="Qld-Wx-weM"/>
+                        <segue destination="DZE-f6-C2V" kind="relationship" relationship="viewControllers" id="5Jj-eo-3Kx"/>
                         <segue destination="fll-gk-vON" kind="relationship" relationship="viewControllers" id="kIX-W3-UKp"/>
                         <segue destination="n62-xX-Mvl" kind="relationship" relationship="viewControllers" id="gM2-lZ-vo1"/>
                     </connections>
@@ -186,6 +187,37 @@
             </objects>
             <point key="canvasLocation" x="154" y="1961"/>
         </scene>
+        <!--India Tracker-->
+        <scene sceneID="i2q-sQ-bh9">
+            <objects>
+                <viewController storyboardIdentifier="CovidIndiaTrackerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DZE-f6-C2V" customClass="CovidIndiaTrackerViewController" customModule="Covid19_Updates" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cVy-C2-tUp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pMd-hv-fLK">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pMd-hv-fLK" firstAttribute="trailing" secondItem="cUP-Ci-rLd" secondAttribute="trailing" id="11Q-Oc-sht"/>
+                            <constraint firstItem="pMd-hv-fLK" firstAttribute="leading" secondItem="cUP-Ci-rLd" secondAttribute="leading" id="7hM-DA-TYW"/>
+                            <constraint firstItem="pMd-hv-fLK" firstAttribute="bottom" secondItem="cUP-Ci-rLd" secondAttribute="bottom" id="SVD-uk-lFj"/>
+                            <constraint firstItem="pMd-hv-fLK" firstAttribute="top" secondItem="cUP-Ci-rLd" secondAttribute="top" id="ZJi-d5-8f3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cUP-Ci-rLd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="India Tracker" image="Indian-Flag" id="4ed-wc-WiK"/>
+                    <connections>
+                        <outlet property="tableView" destination="pMd-hv-fLK" id="E66-fZ-NlB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Tj-zU-Eza" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1192.753623188406" y="1900.4464285714284"/>
+        </scene>
         <!--Covid Country Table View Controller-->
         <scene sceneID="P1F-pF-76b">
             <objects>
@@ -225,6 +257,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Indian-Flag" width="33.333332061767578" height="22"/>
         <image name="arrowtriangle.down.circle.fill" catalog="system" width="128" height="121"/>
         <image name="chart.pie" catalog="system" width="128" height="121"/>
         <image name="doc" catalog="system" width="115" height="128"/>

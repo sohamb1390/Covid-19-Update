@@ -79,6 +79,8 @@ class CovidDashboardViewController: UIViewController {
                 subViewController.tabBarItem.title = viewModel?.mapTabBarTitle
             } else if subViewController.isKind(of: CovidPieChartViewController.self) {
                 subViewController.tabBarItem.title = viewModel?.chartTabBarTitle
+            } else if subViewController.isKind(of: CovidIndiaTrackerViewController.self) {
+                subViewController.tabBarItem.title = viewModel?.indiaTrackerTabBarTitle
             }
         }
         tabBarController?.navigationController?.overrideUserInterfaceStyle = .dark

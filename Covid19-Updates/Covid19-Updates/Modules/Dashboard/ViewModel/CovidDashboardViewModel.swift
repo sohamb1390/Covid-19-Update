@@ -31,11 +31,11 @@ final class CovidDashboardViewModel: NSObject {
     private var filteredCountryDataCellViewModels: [CovidDashboardCellViewModel] = []
 
     var retryTitle: String {
-        return NSLocalizedString("RETRY", comment: "")
+        return GeneralConstants.ReusableText.error.localized()
     }
     
     var errorTitle: String {
-        return NSLocalizedString("ERROR", comment: "")
+        return GeneralConstants.ReusableText.retry.localized()
     }
     
     var searchbarPlaceholder: String {
@@ -56,6 +56,10 @@ final class CovidDashboardViewModel: NSObject {
     
     var chartTabBarTitle: String {
         return NSLocalizedString("Chart", comment: "")
+    }
+    
+    var indiaTrackerTabBarTitle: String {
+        return NSLocalizedString("India Tracker", comment: "")
     }
     
     static var imageFolderPath: URL? {

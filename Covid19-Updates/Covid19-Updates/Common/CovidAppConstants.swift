@@ -40,7 +40,8 @@ func DPrint(_ items: Any...) {
 struct GeneralConstants {
     enum ReusableText: String {
         case notAvailableString = "N/A"
-        
+        case error = "ERROR"
+        case retry = "RETRY"
         func localized() -> String {
             return NSLocalizedString(self.rawValue, comment: "")
         }
@@ -49,10 +50,18 @@ struct GeneralConstants {
     static func convertTimeStampIntoText(for timeStamp: Int64) -> String {
         let unixTimeStamp: Double = Double(timeStamp) / 1000.0
         let exactDate = Date(timeIntervalSince1970: unixTimeStamp)
+        return GeneralConstants.getFormattedDateString(from: exactDate)
+    }
+    
+    static func convertDateIntoText(from date: Date) -> String {
+        return GeneralConstants.getFormattedDateString(from: date)
+    }
+    
+    static private func getFormattedDateString(from date: Date) -> String {
         CovidDateFormatter.shared.dateFormatter.timeStyle = .medium // Set time style
         CovidDateFormatter.shared.dateFormatter.dateStyle = .medium // Set date style
         CovidDateFormatter.shared.dateFormatter.timeZone = .current
-        return CovidDateFormatter.shared.dateFormatter.string(from: exactDate)
+        return CovidDateFormatter.shared.dateFormatter.string(from: date)
     }
 }
 
