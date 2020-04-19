@@ -12,6 +12,8 @@ class CovidIndiaTrackerViewController: UIViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noDataFoundLabel: UILabel!
+    @IBOutlet weak var dataCourtesyButton: UIButton!
     
     // MARK: Properties
     private var viewModel: CovidIndiaTrackerViewModel?
@@ -21,6 +23,7 @@ class CovidIndiaTrackerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        overrideUserInterfaceStyle = .dark
         setupTableView()
         bind(to: CovidIndiaTrackerViewModel())
     }
@@ -29,10 +32,22 @@ class CovidIndiaTrackerViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
         updateNavigationBarTitle()
+        setupNavigationItem()
+        setupSearchBar()
         viewModel?.fetchIndiaData()
     }
     
     // MARK: - Setup
+    private func setupNavigationItem() {
+        tabBarController?.navigationController?.overrideUserInterfaceStyle = .dark
+        tabBarController?.navigationItem.largeTitleDisplayMode = .always
+        let refreshNavigationItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(onTapRefresh(_:)))
+        refreshNavigationItem.tintColor = UIColor(appColor: .base)
+        refreshNavigationItem.style = .done
+        tabBarController?.navigationController?.navigationBar.prefersLargeTitles = true
+        tabBarController?.navigationItem.rightBarButtonItem = refreshNavigationItem
+    }
+    
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -45,8 +60,47 @@ class CovidIndiaTrackerViewController: UIViewController {
         tableView.register(UINib(nibName: CovidIndiaStateCell.className, bundle: .main), forCellReuseIdentifier: CovidIndiaStateCell.className)
     }
     
+    private func setupSearchBar() {
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = viewModel?.searchbarPlaceholder
+        search.searchBar.delegate = self
+        tabBarController?.navigationItem.searchController = search
+    }
+    
     private func updateNavigationBarTitle() {
         tabBarController?.navigationItem.title = viewModel?.navigationTitle
+    }
+    
+    // MARK: - Actions
+    @objc
+    private func onTapRefresh(_ sender: Any) {
+        tabBarController?.navigationItem.rightBarButtonItem = nil
+        let loader = UIActivityIndicatorView(style: .medium)
+        loader.tintColor = UIColor(appColor: .base)
+        loader.startAnimating()
+        tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loader)
+        viewModel?.fetchIndiaData()
+    }
+    
+    @IBAction func onTapDataCourtesy(_ sender: UIButton) {
+        if let url = URL(string: "https://github.com/amodm/api-covid19-in"), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+}
+// MARK: - Search Mechanism
+extension CovidIndiaTrackerViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        if !text.isEmpty {
+            viewModel?.filterResult(by: text)
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel?.resetFilter()
     }
 }
 // MARK: - UITableViewDelegate & UITableViewDatasource
@@ -112,6 +166,7 @@ extension CovidIndiaTrackerViewController: CovidBindable {
                     self?.show(with: model.loaderText)
                 } else {
                     self?.dismiss()
+                    self?.setupNavigationItem()
                 }
             }
         })
@@ -126,7 +181,10 @@ extension CovidIndiaTrackerViewController: CovidBindable {
                 } else {
                     self?.tableView.reloadData()
                 }
+                self?.noDataFoundLabel.text = self?.viewModel?.noDataFoundText
             }
         })
+        
+        self.dataCourtesyButton.setTitle(self.viewModel?.courtesyText, for: .normal)
     }
 }

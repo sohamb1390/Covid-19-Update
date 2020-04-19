@@ -39,7 +39,7 @@ class CovidIndiaStateCell: UITableViewCell {
     // MARK: - UI Setup
     private func uiSetup() {
         locationNameLabel.textColor = .label
-        locationNameLabel.font = .preferredFont(forTextStyle: .title2)
+        locationNameLabel.font = UIFont.preferredFont(forTextStyle: .title1).bold()
         confirmedCaseCountLabel.textColor = .systemPink
         confirmedCaseCountLabel.font = UIFont.preferredFont(forTextStyle: .title1).bold()
         confirmedRecoveredCountLabel.textColor = UIColor(appColor: .green)

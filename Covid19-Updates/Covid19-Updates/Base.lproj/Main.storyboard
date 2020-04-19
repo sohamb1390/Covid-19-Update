@@ -199,18 +199,60 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWY-ob-qG5">
+                                <rect key="frame" x="207" y="448" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1w-oB-qAA">
+                                <rect key="frame" x="0.0" y="783" width="414" height="30"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EjY-8v-QOA">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zk-pb-efA">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                            <state key="normal" title="Data courtesy: https://github.com/amodm/api-covid19-in">
+                                                <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onTapDataCourtesy:" destination="DZE-f6-C2V" eventType="touchUpInside" id="SD5-QJ-vq1"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="4zk-pb-efA" secondAttribute="bottom" id="048-Ct-7ns"/>
+                                        <constraint firstItem="4zk-pb-efA" firstAttribute="top" secondItem="EjY-8v-QOA" secondAttribute="top" id="Woa-Jb-gAH"/>
+                                        <constraint firstAttribute="trailing" secondItem="4zk-pb-efA" secondAttribute="trailing" id="dAH-Lu-m9i"/>
+                                        <constraint firstItem="4zk-pb-efA" firstAttribute="leading" secondItem="EjY-8v-QOA" secondAttribute="leading" id="oth-9r-EG0"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="PSa-sm-4w8"/>
+                                </constraints>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="pMd-hv-fLK" firstAttribute="trailing" secondItem="cUP-Ci-rLd" secondAttribute="trailing" id="11Q-Oc-sht"/>
                             <constraint firstItem="pMd-hv-fLK" firstAttribute="leading" secondItem="cUP-Ci-rLd" secondAttribute="leading" id="7hM-DA-TYW"/>
                             <constraint firstItem="pMd-hv-fLK" firstAttribute="bottom" secondItem="cUP-Ci-rLd" secondAttribute="bottom" id="SVD-uk-lFj"/>
+                            <constraint firstItem="h1w-oB-qAA" firstAttribute="trailing" secondItem="cUP-Ci-rLd" secondAttribute="trailing" id="V7Y-Wa-G3q"/>
+                            <constraint firstItem="cUP-Ci-rLd" firstAttribute="bottom" secondItem="h1w-oB-qAA" secondAttribute="bottom" id="VxP-Xr-tqc"/>
+                            <constraint firstItem="h1w-oB-qAA" firstAttribute="leading" secondItem="cUP-Ci-rLd" secondAttribute="leading" id="Yat-3W-LHS"/>
                             <constraint firstItem="pMd-hv-fLK" firstAttribute="top" secondItem="cUP-Ci-rLd" secondAttribute="top" id="ZJi-d5-8f3"/>
+                            <constraint firstItem="hWY-ob-qG5" firstAttribute="centerY" secondItem="cVy-C2-tUp" secondAttribute="centerY" id="loS-Ey-bmu"/>
+                            <constraint firstItem="hWY-ob-qG5" firstAttribute="centerX" secondItem="cVy-C2-tUp" secondAttribute="centerX" id="yeu-nM-TDl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cUP-Ci-rLd"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="India Tracker" image="Indian-Flag" id="4ed-wc-WiK"/>
                     <connections>
+                        <outlet property="dataCourtesyButton" destination="4zk-pb-efA" id="yvG-3r-YdN"/>
+                        <outlet property="noDataFoundLabel" destination="hWY-ob-qG5" id="C0E-4G-KG8"/>
                         <outlet property="tableView" destination="pMd-hv-fLK" id="E66-fZ-NlB"/>
                     </connections>
                 </viewController>
@@ -257,7 +299,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Indian-Flag" width="33.333332061767578" height="22"/>
+        <image name="Indian-Flag" width="33.333332061767578" height="33.333332061767578"/>
         <image name="arrowtriangle.down.circle.fill" catalog="system" width="128" height="121"/>
         <image name="chart.pie" catalog="system" width="128" height="121"/>
         <image name="doc" catalog="system" width="115" height="128"/>

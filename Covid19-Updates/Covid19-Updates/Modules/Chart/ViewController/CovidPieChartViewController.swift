@@ -41,6 +41,8 @@ class CovidPieChartViewController: CovidChartBaseViewController {
         
         tabBarController?.navigationItem.largeTitleDisplayMode = .never
         
+        tabBarController?.navigationController?.navigationBar.prefersLargeTitles = false
+
         tabBarController?.navigationItem.searchController = nil
         
         tabBarController?.navigationController?.isNavigationBarHidden = false

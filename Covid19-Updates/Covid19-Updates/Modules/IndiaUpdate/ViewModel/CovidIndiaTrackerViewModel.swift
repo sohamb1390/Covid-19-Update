@@ -25,8 +25,9 @@ final class CovidIndiaTrackerViewModel: NSObject {
     private let fetcher = CovidIndiaDataFetcher()
     private let sections = CovidIndiaTrackerTableSection.allCases
     private var summaryCellViewModel: DashboardCellCommonModelable?
-    private var stateUpdatesCellViewModels: [DashboardCellCommonModelable] = []
-    
+    private var originalStateUpdatesCellViewModels: [DashboardCellCommonModelable] = []
+    private var filteredStateUpdatesCellViewModels: [DashboardCellCommonModelable] = []
+
     var loaderText: String {
         return NSLocalizedString("Fetching Latest Updates", comment: "")
     }
@@ -40,6 +41,18 @@ final class CovidIndiaTrackerViewModel: NSObject {
     
     var navigationTitle: String {
         return NSLocalizedString("Covid-19 India", comment: "")
+    }
+    
+    var noDataFoundText: String {
+        return filteredStateUpdatesCellViewModels.isEmpty ? NSLocalizedString("No Data found", comment: "") : ""
+    }
+    
+    var searchbarPlaceholder: String {
+        return NSLocalizedString("Try searching using state names", comment: "")
+    }
+    
+    var courtesyText: String {
+        return "Data Courtesy: https://github.com/amodm/api-covid19-in"
     }
     
     // MARK: - Fetch Data
@@ -73,7 +86,9 @@ final class CovidIndiaTrackerViewModel: NSObject {
             let stateCellViewModel = CovidIndiaStateCellViewModel(locationName: stateUpdate.locationName ?? "", casesCount: stateUpdate.totalCases == nil ? "" : "\(stateUpdate.totalCases!)", fatalityCount: stateUpdate.totalDeaths == nil ? "" : "\(stateUpdate.totalDeaths!)", recoveredCount: stateUpdate.totalRecovered == nil ? "" : "\(stateUpdate.totalRecovered!)", infectedIndiansCount: stateUpdate.confirmedInfectedIndians == nil ? "" : "\(stateUpdate.confirmedInfectedIndians!)", infectedForeignersCount: stateUpdate.confirmedInfectedForeigners == nil ? "" : "\(stateUpdate.confirmedInfectedForeigners!)")
             cellVMs.append(stateCellViewModel)
         }
-        stateUpdatesCellViewModels = cellVMs
+        
+        originalStateUpdatesCellViewModels = cellVMs
+        filteredStateUpdatesCellViewModels = cellVMs
         response.value = (isSuccess: true, error: nil)
     }
     
@@ -85,7 +100,7 @@ final class CovidIndiaTrackerViewModel: NSObject {
     func numberOfRows(in section: Int) -> Int {
         if sections.count > section {
             let section = sections[section]
-            return section == .some(.summary) ? 1 : stateUpdatesCellViewModels.count
+            return section == .some(.summary) ? 1 : filteredStateUpdatesCellViewModels.count
         }
         return 0
     }
@@ -96,8 +111,8 @@ final class CovidIndiaTrackerViewModel: NSObject {
             switch section {
             case .summary: return summaryCellViewModel
             case .stateList:
-                if stateUpdatesCellViewModels.count > indexPath.row {
-                    let cellVM = stateUpdatesCellViewModels[indexPath.row]
+                if filteredStateUpdatesCellViewModels.count > indexPath.row {
+                    let cellVM = filteredStateUpdatesCellViewModels[indexPath.row]
                     return cellVM
                 }
             }
@@ -119,5 +134,17 @@ final class CovidIndiaTrackerViewModel: NSObject {
             return section
         }
         return nil
+    }
+    
+    // MARK: - Filter
+    func filterResult(by searchQuery: String) {
+        let filtered = (originalStateUpdatesCellViewModels as? [CovidIndiaStateCellViewModel])?.filter({ $0.locationName.lowercased().contains(searchQuery.lowercased()) })
+        filteredStateUpdatesCellViewModels = filtered ?? []
+        response.value = (isSuccess: true, error: nil)
+    }
+    
+    func resetFilter() {
+        filteredStateUpdatesCellViewModels = originalStateUpdatesCellViewModels
+        response.value = (isSuccess: true, error: nil)
     }
 }

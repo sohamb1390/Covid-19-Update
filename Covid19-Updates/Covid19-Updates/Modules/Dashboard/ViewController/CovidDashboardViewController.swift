@@ -34,9 +34,7 @@ class CovidDashboardViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
         updateNavigationBarTitle()
         setupNavigationItem()
-        if tabBarController?.navigationItem.searchController == nil {
-            setupSearchBar()
-        }
+        setupSearchBar()
         // Fetch Data
         viewModel?.fetchData()
     }
@@ -65,6 +63,7 @@ class CovidDashboardViewController: UIViewController {
     private func setupNavigationItem() {
         tabBarController?.navigationController?.overrideUserInterfaceStyle = .dark
         tabBarController?.navigationItem.largeTitleDisplayMode = .always
+        tabBarController?.navigationController?.navigationBar.prefersLargeTitles = true
         let refreshNavigationItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(onTapRefresh(_:)))
         refreshNavigationItem.tintColor = UIColor(appColor: .base)
         refreshNavigationItem.style = .done
@@ -159,7 +158,7 @@ extension CovidDashboardViewController: UITableViewDelegate, UITableViewDataSour
             return nil
         }
         headerView.titleLabel.text = viewModel?.headerText(at: section)
-        
+        headerView.titleLabel.textColor = UIColor(appColor: .segmentBackground)
         return headerView
     }
     

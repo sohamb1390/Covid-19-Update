@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vZh-kb-P4I">
-                        <rect key="frame" x="0.0" y="40" width="320" height="180"/>
+                        <rect key="frame" x="0.0" y="32" width="320" height="188"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="176" id="CYu-Ro-FGf"/>
@@ -31,13 +31,13 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Last Updated at:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mue-Q2-oVJ">
-                        <rect key="frame" x="12" y="8" width="101" height="16"/>
+                        <rect key="frame" x="12" y="0.0" width="101" height="16"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                         <color key="textColor" name="SubtitleText"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rET-vb-6ue">
-                        <rect key="frame" x="117" y="8" width="195" height="16"/>
+                        <rect key="frame" x="117" y="0.0" width="195" height="16"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                 <constraints>
                     <constraint firstItem="mue-Q2-oVJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="1G8-ET-TAQ"/>
                     <constraint firstAttribute="bottom" secondItem="vZh-kb-P4I" secondAttribute="bottom" priority="750" id="IY8-kF-y6b"/>
-                    <constraint firstItem="mue-Q2-oVJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="KnH-y1-CeU"/>
+                    <constraint firstItem="mue-Q2-oVJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KnH-y1-CeU"/>
                     <constraint firstItem="rET-vb-6ue" firstAttribute="leading" secondItem="mue-Q2-oVJ" secondAttribute="trailing" constant="4" id="ZZM-ug-26F"/>
                     <constraint firstAttribute="trailing" secondItem="rET-vb-6ue" secondAttribute="trailing" constant="8" id="g7U-Hl-Qku"/>
                     <constraint firstItem="vZh-kb-P4I" firstAttribute="top" secondItem="rET-vb-6ue" secondAttribute="bottom" constant="16" id="hZY-6b-Mk5"/>

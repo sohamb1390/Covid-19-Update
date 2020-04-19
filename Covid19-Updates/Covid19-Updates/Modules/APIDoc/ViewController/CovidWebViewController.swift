@@ -51,6 +51,7 @@ class CovidWebViewController: UIViewController {
     private func setupNavigationItem() {
         navigationController?.isNavigationBarHidden = false
         tabBarController?.navigationItem.largeTitleDisplayMode = .always
+        tabBarController?.navigationController?.navigationBar.prefersLargeTitles = true
         tabBarController?.navigationItem.searchController = nil
         tabBarController?.navigationItem.rightBarButtonItem = nil
     }
