@@ -9,6 +9,8 @@
 
 ### Note: Please resolve the package (Swift Package Manager) dependency and change the code-signing in order to run the project.
 
+### Currently the App only support Dark Mode :)
+
 ## Some of the screenshots of the App:
 <h2>Covid-19 India Live Update</h2>
 
