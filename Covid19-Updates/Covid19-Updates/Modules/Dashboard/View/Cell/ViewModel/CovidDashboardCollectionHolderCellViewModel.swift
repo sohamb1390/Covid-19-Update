@@ -93,7 +93,7 @@ final class CovidDashboardCollectionHolderCellViewModel: DashboardCellCommonMode
                 return (title: row.localized(), value: value)
             case .deathsPerOneMilion:
                 if let value = covidData.deathsPerOneMillion {
-                    return (title: row.localized(), value: "\(value)%")
+                    return (title: row.localized(), value: "\(value)")
                 }
                 return (title: row.localized(), value: GeneralConstants.ReusableText.notAvailableString.localized())
             case .affectedCountry:
