@@ -159,7 +159,6 @@ extension CovidDashboardViewController: UITableViewDelegate, UITableViewDataSour
             return nil
         }
         headerView.titleLabel.text = viewModel?.headerText(at: section)
-        headerView.titleLabel.textColor = UIColor(appColor: .segmentBackground)
         return headerView
     }
     

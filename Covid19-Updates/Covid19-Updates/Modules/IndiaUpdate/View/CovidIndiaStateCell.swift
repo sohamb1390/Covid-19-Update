@@ -27,7 +27,6 @@ class CovidIndiaStateCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        uiSetup()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,25 +36,6 @@ class CovidIndiaStateCell: UITableViewCell {
     }
     
     // MARK: - UI Setup
-    private func uiSetup() {
-        locationNameLabel.textColor = .label
-        locationNameLabel.font = UIFont.preferredFont(forTextStyle: .title1).bold()
-        confirmedCaseCountLabel.textColor = .systemPink
-        confirmedCaseCountLabel.font = UIFont.preferredFont(forTextStyle: .title1).bold()
-        confirmedRecoveredCountLabel.textColor = UIColor(appColor: .green)
-        confirmedRecoveredCountLabel.font = UIFont.preferredFont(forTextStyle: .title1).bold()
-        confirmedFatalityCountLabel.textColor = UIColor(appColor: .red)
-        confirmedFatalityCountLabel.font = UIFont.preferredFont(forTextStyle: .title1).bold()
-        confirmedIndianCaseCountLabel.textColor = .systemOrange
-        confirmedIndianCaseCountLabel.font = UIFont.preferredFont(forTextStyle: .title1).bold()
-        confirmedForeignerCaseCountLabel.textColor = .systemOrange
-        confirmedForeignerCaseCountLabel.font = UIFont.preferredFont(forTextStyle: .title1).bold()
-        caseCountTitleLabel.textColor = UIColor(appColor: .border)
-        recoveredCountTitleLabel.textColor = UIColor(appColor: .border)
-        fatalityTitleLabel.textColor = UIColor(appColor: .border)
-        indianCountTitleLabel.textColor = UIColor(appColor: .border)
-        foreignerCountTitleLabel.textColor = UIColor(appColor: .border)
-    }
 }
 
 // MARK: - Binding
