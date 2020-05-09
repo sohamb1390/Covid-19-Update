@@ -23,7 +23,7 @@ class CovidIndiaTrackerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        overrideUserInterfaceStyle = .dark
+        overrideUserInterfaceStyle = .unspecified
         setupTableView()
         bind(to: CovidIndiaTrackerViewModel())
     }
@@ -39,7 +39,7 @@ class CovidIndiaTrackerViewController: UIViewController {
     
     // MARK: - Setup
     private func setupNavigationItem() {
-        tabBarController?.navigationController?.overrideUserInterfaceStyle = .dark
+        tabBarController?.navigationController?.overrideUserInterfaceStyle = .unspecified
         tabBarController?.navigationItem.largeTitleDisplayMode = .always
         let refreshNavigationItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(onTapRefresh(_:)))
         refreshNavigationItem.tintColor = UIColor(appColor: .base)

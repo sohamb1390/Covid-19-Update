@@ -23,8 +23,8 @@ class CovidCountryTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         isModalInPresentation = true
-        overrideUserInterfaceStyle = .dark
-        navigationController?.overrideUserInterfaceStyle = .dark
+        overrideUserInterfaceStyle = .unspecified
+        navigationController?.overrideUserInterfaceStyle = .unspecified
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 50.0
         tableView.rowHeight = UITableView.automaticDimension

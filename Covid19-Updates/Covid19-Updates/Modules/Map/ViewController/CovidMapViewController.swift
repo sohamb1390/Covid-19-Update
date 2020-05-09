@@ -22,7 +22,7 @@ class CovidMapViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        overrideUserInterfaceStyle = .dark
+        overrideUserInterfaceStyle = .unspecified
         bind(to: CovidMapViewModel(with: CovidSharedData.shared.countryWiseCases))
         configureMap()
         registerAnnotationViewClasses()
