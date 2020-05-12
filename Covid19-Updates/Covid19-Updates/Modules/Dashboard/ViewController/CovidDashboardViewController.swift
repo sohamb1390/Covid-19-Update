@@ -21,7 +21,7 @@ class CovidDashboardViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        overrideUserInterfaceStyle = .dark
+        overrideUserInterfaceStyle = .unspecified
         
         bind(to: CovidDashboardViewModel())
         setupTableView()
@@ -62,7 +62,7 @@ class CovidDashboardViewController: UIViewController {
     }
     
     private func setupNavigationItem() {
-        tabBarController?.navigationController?.overrideUserInterfaceStyle = .dark
+        tabBarController?.navigationController?.overrideUserInterfaceStyle = .unspecified
         tabBarController?.navigationItem.largeTitleDisplayMode = .always
         tabBarController?.navigationController?.navigationBar.prefersLargeTitles = true
         let refreshNavigationItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(onTapRefresh(_:)))
@@ -83,8 +83,8 @@ class CovidDashboardViewController: UIViewController {
                 subViewController.tabBarItem.title = viewModel?.indiaTrackerTabBarTitle
             }
         }
-        tabBarController?.navigationController?.overrideUserInterfaceStyle = .dark
-        tabBarController?.overrideUserInterfaceStyle = .dark
+        tabBarController?.navigationController?.overrideUserInterfaceStyle = .unspecified
+        tabBarController?.overrideUserInterfaceStyle = .unspecified
         tabBarController?.tabBar.tintColor = UIColor(appColor: .base)
     }
     
@@ -159,7 +159,6 @@ extension CovidDashboardViewController: UITableViewDelegate, UITableViewDataSour
             return nil
         }
         headerView.titleLabel.text = viewModel?.headerText(at: section)
-        headerView.titleLabel.textColor = UIColor(appColor: .segmentBackground)
         return headerView
     }
     
